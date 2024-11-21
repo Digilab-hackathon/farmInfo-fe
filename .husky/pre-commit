@@ -1,0 +1,15 @@
+staged_files=$(git diff --cached --name-only)
+
+if [ -n "$staged_files" ]; then
+  violations=$(echo "$staged_files" | xargs grep -n 'console\.log' || true)
+else
+  violations=""
+fi
+
+if [ -n "$violations" ]; then
+  echo "\033[31mError: console log statements are not allowed in the following files:\n\033[0m"
+  echo "\033[31m$violations\033[0m" | tr ';' '\n'
+  exit 1
+fi
+
+npx lint-staged
