@@ -1,3 +1,10 @@
+import Map from './_components/map'
+
 export default function Home() {
-  return <div></div>
+  return (
+    <div>
+      <h1>지도</h1>
+      <Map />
+    </div>
+  )
 }
