@@ -14,11 +14,24 @@ export default function Map() {
 
       const mapOptions = {
         center: jejuCenter, // 제주도 중심 좌표로 초기화
-        zoom: 10
+        zoom: 15
       }
 
       const newMap = new naver.maps.Map('map', mapOptions)
       setMap(newMap)
+
+      const radius = 50 // 반경 설정
+
+      new naver.maps.Circle({
+        map: newMap,
+        center: jejuCenter, // 중심 좌표
+        radius: radius, // 반지름
+        strokeColor: '#FF0000', // 테두리 색
+        strokeOpacity: 1, // 테두리 불투명도
+        strokeWeight: 2, // 테두리 두께
+        fillColor: '#FF0000', // 원 내부 색
+        fillOpacity: 0.3 // 원 내부 불투명도
+      })
 
       const marker = new naver.maps.Marker({
         position: jejuCenter,
