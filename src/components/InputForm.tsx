@@ -4,7 +4,8 @@ import { useController, FieldValues, Path, Control } from 'react-hook-form'
 
 interface InputProps<T extends FieldValues> {
   name: Path<T>
-  label?: string
+  label: string
+  detailLabel?: string
   control: Control<T>
   placeholder?: string
   type?: string
@@ -14,6 +15,7 @@ interface InputProps<T extends FieldValues> {
 const InputForm = <T extends FieldValues>({
   name,
   label,
+  detailLabel,
   control,
   placeholder,
   type = 'text',
@@ -30,11 +32,17 @@ const InputForm = <T extends FieldValues>({
 
   return (
     <>
-      <label>{label}</label>
+      <label>
+        <span>{label}</span>
+        <span> {detailLabel}</span>
+        {rules && '*'}
+      </label>
       <input
         {...field}
+        id={name}
         type={type}
         placeholder={placeholder}
+        value={field.value || ''}
       />
       {error && <span>{error.message}</span>}
     </>
