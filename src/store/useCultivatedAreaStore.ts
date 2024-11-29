@@ -1,14 +1,13 @@
 import {
+  CultivatedAreaType,
   CultivatedAreaReportInfo,
   CultivatedAreaUserInfo
 } from '@/types/CultivatedAreaInfoValues'
 import { create } from 'zustand'
 
-type CultivatedArea = CultivatedAreaUserInfo & CultivatedAreaReportInfo
-
 interface CultivatedAreaState {
   currentPage: number
-  cultivatedAreaData: CultivatedArea
+  cultivatedAreaData: CultivatedAreaType
   nextPage: () => void
   updateUserInfo: (member: CultivatedAreaUserInfo) => void
   updateReportInfo: (report: CultivatedAreaReportInfo) => void
@@ -17,18 +16,18 @@ interface CultivatedAreaState {
 export const useCultivatedAreaStore = create<CultivatedAreaState>(set => ({
   currentPage: 1,
   cultivatedAreaData: {
-    reporterName: '',
-    birthday: '',
+    name: '',
+    birthDate: '',
     address: '',
-    phone: '',
-    secondPhone: '',
+    phoneNumber: '',
+    homePhoneNumber: '',
     crop: '',
     district: '',
     village: '',
     landCategory: '',
     totalArea: 0,
     cultivatedArea: 0,
-    isSelfCultivated: ''
+    ownershipType: ''
   },
   nextPage: () =>
     set(state => ({

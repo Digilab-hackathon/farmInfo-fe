@@ -1,9 +1,9 @@
 export interface CultivatedAreaUserInfo {
-  reporterName: string
-  birthday: string
+  name: string
+  birthDate: string
   address: string
-  phone: string
-  secondPhone?: string
+  phoneNumber: string
+  homePhoneNumber?: string
 }
 
 export interface CultivatedAreaReportInfo {
@@ -13,5 +13,8 @@ export interface CultivatedAreaReportInfo {
   landCategory: string
   totalArea: number
   cultivatedArea: number
-  isSelfCultivated: string
+  ownershipType: string
 }
+
+export type CultivatedAreaType = CultivatedAreaUserInfo &
+  CultivatedAreaReportInfo
