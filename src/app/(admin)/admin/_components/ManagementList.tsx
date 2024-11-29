@@ -1,14 +1,17 @@
-import { cultivationReport } from '@/types/data'
+import { cultivationReport, shipmentReport } from '@/types/data'
 import { useRouter } from 'next/navigation'
 
 type ManagementProps = {
-  datas: cultivationReport[]
+  datas: cultivationReport[] | shipmentReport[]
+  type: string
 }
 
-const ManagementList = ({ datas }: ManagementProps) => {
+const ManagementList = ({ datas, type }: ManagementProps) => {
   const route = useRouter()
 
   const handleClick = (id: number) => {
+    if (type === 'shipment')
+      route.push(`/admin/shipment-report-management/${id}`)
     route.push(`/admin/cultivated-area-report-management/${id}`)
   }
 
