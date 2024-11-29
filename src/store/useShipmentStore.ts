@@ -13,7 +13,7 @@ interface ShipmentState {
   updateReportInfo: (report: ShipmentReportInfo) => void
 }
 
-export const useCultivatedAreaStore = create<ShipmentState>(set => ({
+export const useShipmentStore = create<ShipmentState>(set => ({
   currentPage: 1,
   shipmentData: {
     name: '',
