@@ -103,7 +103,7 @@ export default function AreaReport() {
           </div>
         ) : (
           <div className={style.cultivationRateInfoWrapper}>
-            <label>적정 재베 면적 지수 초과</label>
+            <label>적정 재배 면적 지수 초과</label>
             <div className={style.highlight}>공급 과잉 우려</div>
           </div>
         )}

@@ -1,0 +1,50 @@
+.formTabWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 27px;
+
+  .eachTab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    position: relative;
+    color: #808184;
+  }
+
+  .circle {
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    z-index: 1;
+  }
+
+  .line {
+    width: 69px;
+    height: 2px;
+    background: var(--gray1, #cbcccc);
+    position: absolute;
+    top: 30%;
+    left: 70%;
+  }
+}
+
+.circleGreen {
+  background-color: #039b72;
+  color: #fff;
+}
+
+.circleGray {
+  background: var(--gray1, #cbcccc);
+}
+.textGreen {
+  color: #039b72;
+}
