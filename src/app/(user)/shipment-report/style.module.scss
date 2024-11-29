@@ -1,0 +1,52 @@
+.shipmentReportContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.explainWrapper {
+  color: #5e5e5e;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+.postShipmentWrapper {
+  background: linear-gradient(94deg, #126a99 7.3%, #43ad85 109.19%);
+  padding: 22px 19px;
+  border-radius: 10px;
+
+  .labelWrapper {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    div {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+  .linkWrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: #efefef;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.078px;
+      padding: 8px 6px;
+      border-radius: 7px;
+      background: var(--main_deep, #004b37);
+      border: none;
+    }
+  }
+}
