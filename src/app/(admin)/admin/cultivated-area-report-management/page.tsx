@@ -24,7 +24,7 @@ export default function CultivatedAreaReportManagement() {
 
     fetchData()
   }, [activeTab])
-  console.log(datas)
+
   return (
     <div>
       <Tab />
