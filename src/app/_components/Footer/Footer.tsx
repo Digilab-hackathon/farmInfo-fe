@@ -48,7 +48,7 @@ const Footer = () => {
       <section onClick={() => handleSelect('/area-report')}>
         <Image
           src={
-            selected === '/cultivated-report'
+            selected === '/area-report'
               ? '/icons/cultivated-report-active.png'
               : '/icons/cultivated-report.png'
           }
