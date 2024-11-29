@@ -1,0 +1,89 @@
+.mainContentsContainer {
+  padding: 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.noticeWrapper {
+  display: flex;
+  padding: 21px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 18px 0;
+  border-radius: 13px;
+  border: 1px solid #1cd096;
+  background: linear-gradient(90deg, #00b26e 1.73%, #00bc85 105.88%);
+  box-shadow: 0px 4px 12.7px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.cropDataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cropDataWrapper {
+  label {
+    color: #716f5e;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .mostCropWrapper {
+    border-radius: 13px;
+    background: #fff;
+    padding: 24px 19px;
+  }
+
+  .contentsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8.5px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+
+    .cropName {
+      display: flex;
+      align-items: center;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 25px;
+    }
+  }
+}
+
+.myShipmentWrapper {
+  border-radius: 13px;
+  background: #fff;
+  padding: 22px 24px;
+
+  label {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 19.049px;
+  }
+}
+
+.buttonWrapper {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  padding: 20px 29px;
+  gap: 8px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #d4d2c3 0.28%, #e5e4de 147.85%);
+  color: #000;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 18px;
+}
