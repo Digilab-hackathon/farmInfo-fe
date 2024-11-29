@@ -2,7 +2,7 @@
 
 import useTabsStore from '@/store/useTabsStore'
 import Tab from '../../_components/Tab'
-import AcceptManagement from '../_components/Management'
+import ManagementList from '../_components/ManagementList'
 import { useEffect, useState } from 'react'
 import { cultivationReport } from '@/types/data'
 
@@ -28,7 +28,7 @@ export default function CultivatedAreaReportManagement() {
   return (
     <div>
       <Tab />
-      {activeTab && <AcceptManagement datas={datas} />}
+      {activeTab && <ManagementList datas={datas} />}
     </div>
   )
 }
