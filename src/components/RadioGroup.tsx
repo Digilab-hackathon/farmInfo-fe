@@ -2,16 +2,11 @@
 
 import { useController, Control, Path, FieldValues } from 'react-hook-form'
 
-interface RadioOption {
-  label: string
-  value: string
-}
-
 interface RadioGroupProps<T extends FieldValues> {
   name: Path<T>
   label: string
   control: Control<T>
-  options: RadioOption[]
+  options: { label: string; value: string }[]
   rules?: object
 }
 
