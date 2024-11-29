@@ -8,7 +8,7 @@ const Tab = () => {
 
   return (
     <div>
-      {['accept', 'approve', 'reject'].map(tab => (
+      {['PENDING', 'APPROVED', 'REJECTED'].map(tab => (
         <button
           key={tab}
           onClick={() => handleTabClick(tab)}>

@@ -6,7 +6,7 @@ interface TabsState {
 }
 
 const useTabsStore = create<TabsState>(set => ({
-  activeTab: 'accept',
+  activeTab: 'PENDING',
   setActiveTab: (tab: string) => set({ activeTab: tab })
 }))
 
