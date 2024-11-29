@@ -1,0 +1,46 @@
+.dropDownContainer {
+  label {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23px;
+  }
+
+  select {
+    height: 45px;
+    border-radius: 7.2px;
+    border: 1.2px solid var(--gray1, #cbcccc);
+    background: var(--white-black-white, #fff);
+    padding: 10px 15px;
+    appearance: none; /* 기본 드롭다운 화살표 제거 */
+    -webkit-appearance: none; /* Safari에서 드롭다운 화살표 제거 */
+    -moz-appearance: none; /* Firefox에서 드롭다운 화살표 제거 */
+    cursor: pointer;
+    background-image: url('/icons/dropdown-arrow.png');
+    background-position: right 10px center; /* 화살표 이미지 위치 */
+    background-repeat: no-repeat; /* 화살표 이미지 반복하지 않음 */
+    background-size: 24px 24px;
+  }
+
+  .defaultSelect {
+    width: 100%;
+  }
+  .miniSelect {
+    width: 116px;
+  }
+
+  select option {
+    width: 100%;
+    background-color: #fff;
+    color: red;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  select option:hover {
+    background-color: #f1f1f1; /* 옵션 hover 상태 스타일 */
+  }
+
+  select option:active {
+    background-color: #ddd; /* 옵션 클릭 상태 스타일 */
+  }
+}

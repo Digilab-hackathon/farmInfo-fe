@@ -1,4 +1,3 @@
-'use client'
 import DoughnutChart from '@/components/DoughnutChart'
 import Header from '../_components/Header/Header'
 import style from './style.module.scss'

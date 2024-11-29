@@ -1,11 +1,13 @@
 import { Control, useController, FieldValues, Path } from 'react-hook-form'
+import style from '@/styles/components/Dropdown.module.scss'
 
 interface DropdownProps<T extends FieldValues> {
   name: Path<T>
-  label: string
+  label?: string
   control: Control<T>
   options: { label: string; value: string }[]
   rules?: object
+  type?: 'mini' | 'default'
 }
 
 const Dropdown = <T extends FieldValues>({
@@ -13,7 +15,8 @@ const Dropdown = <T extends FieldValues>({
   label,
   control,
   options,
-  rules
+  rules,
+  type = 'default'
 }: DropdownProps<T>) => {
   const {
     field,
@@ -25,11 +28,14 @@ const Dropdown = <T extends FieldValues>({
   })
 
   return (
-    <div>
+    <div className={style.dropDownContainer}>
       <label>{label}</label>
-      <select {...field}>
+      <select
+        className={type === 'mini' ? style.miniSelect : style.defaultSelect}
+        {...field}>
         {options.map((option, index) => (
           <option
+            className={style.customOption}
             key={index}
             value={option.value}>
             {option.label}

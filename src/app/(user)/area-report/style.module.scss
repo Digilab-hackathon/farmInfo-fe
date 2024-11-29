@@ -1,0 +1,112 @@
+.areaReportContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.appropriateCultivationAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 26px;
+
+  label {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  .cultivationRateInfoWrapper {
+    padding: 16px 86px;
+    align-self: stretch;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 21px;
+    border-radius: var(--Number-2, 9px);
+    background: #fff;
+    min-height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .expectedPriceWrapper {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    border-radius: var(--Number-2, 6px);
+    background: #fff;
+    padding: 9px;
+
+    label {
+      border-radius: 5px;
+      background: var(--main2, #00b0d7);
+      padding: 8px;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 21px;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 21px;
+    }
+    .unit {
+      font-size: 12.381px;
+      font-weight: 600;
+      line-height: 13px;
+    }
+  }
+}
+
+.bar {
+  height: 9px;
+  background: #e4e4e4;
+}
+
+.postCultivationAreaInfoContainer {
+  padding: 0 26px;
+  .postCultivationAreaInfoWrapper {
+    background: linear-gradient(84deg, #00aed2 47.25%, #00ac7e 91.86%);
+    padding: 22px 19px;
+    border-radius: 10px;
+  }
+  .labelWrapper {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    div {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  .linkWrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: #efefef;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.078px;
+      padding: 8px 6px;
+      border-radius: 7px;
+      background: var(--main_deep, #004b37);
+      border: none;
+    }
+  }
+}
