@@ -1,5 +1,6 @@
 'use client'
 import DoughnutChart from '@/components/DoughnutChart'
+import Header from '../_components/Header/Header'
 
 export default function Home() {
   const data = {
@@ -13,7 +14,10 @@ export default function Home() {
   }
   return (
     <div>
-      <h1>지도</h1>
+      <Header
+        title="팜인포"
+        type="main"
+      />
       <DoughnutChart data={data} />
     </div>
   )

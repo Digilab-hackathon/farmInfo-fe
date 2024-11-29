@@ -4,7 +4,13 @@ export default function UserLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+    <div
+      style={{
+        height: '100%',
+        maxWidth: '400px',
+        margin: '0 auto',
+        backgroundColor: '#EFEEEB'
+      }}>
       <div>{children}</div>
     </div>
   )
