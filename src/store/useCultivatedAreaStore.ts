@@ -22,12 +22,12 @@ export const useCultivatedAreaStore = create<CultivatedAreaState>(set => ({
     address: '',
     phone: '',
     secondPhone: '',
-    productName: '',
-    region: '',
-    ri: '',
+    crop: '',
+    district: '',
+    village: '',
     landCategory: '',
-    area: 0,
-    detailedArea: 0,
+    totalArea: 0,
+    cultivatedArea: 0,
     isSelfCultivated: ''
   },
   nextPage: () =>

@@ -7,11 +7,11 @@ export interface CultivatedAreaUserInfo {
 }
 
 export interface CultivatedAreaReportInfo {
-  productName: string
-  region: string
-  ri: string
+  crop: string
+  district: string
+  village: string
   landCategory: string
-  area: number
-  detailedArea: number
+  totalArea: number
+  cultivatedArea: number
   isSelfCultivated: string
 }
