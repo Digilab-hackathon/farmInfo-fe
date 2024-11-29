@@ -3,8 +3,7 @@
 import DoughnutChart from '@/components/DoughnutChart'
 import Dropdown from '@/components/Dropdown'
 import { cropOptions } from '@/constants/options'
-// import { shipmentReport } from '@/types/data'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import style from './style.module.scss'
 import Link from 'next/link'
@@ -20,7 +19,9 @@ const data = {
 }
 
 export default function AreaReport() {
-  //   const [datas, setDatas] = useState<shipmentReport[]>([])
+  const [approciateAreaData, setApprociateAreaData] = useState(0)
+  const [approveAreaData, setApproveAreaData] = useState(0)
+  const [expectedPriceData, setExpectedPriceData] = useState(0)
 
   const { control, watch } = useForm({
     defaultValues: {
@@ -31,23 +32,58 @@ export default function AreaReport() {
   const crop = watch('crop')
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchApprociateAreaData = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-area?crop=${crop}`
         )
         if (!response.ok) {
           throw new Error('데이터를 가져오는 데 실패했습니다.')
         }
-        // const result = await response.json()
-        // setDatas(result)
+        const result = await response.json()
+        setApprociateAreaData(result)
       } catch (error) {
         console.error('Fetch error:', error)
       }
     }
 
-    fetchData()
+    const fetchApproveAreaData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/area/${crop}`
+        )
+        if (!response.ok) {
+          throw new Error('데이터를 가져오는 데 실패했습니다.')
+        }
+        const result = await response.json()
+        setApproveAreaData(result)
+      } catch (error) {
+        console.error('Fetch error:', error)
+      }
+    }
+
+    const fetchExpectedPriceData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/price/${crop}`
+        )
+        if (!response.ok) {
+          throw new Error('데이터를 가져오는 데 실패했습니다.')
+        }
+        const result = await response.json()
+        setExpectedPriceData(result)
+      } catch (error) {
+        console.error('Fetch error:', error)
+      }
+    }
+
+    fetchApprociateAreaData()
+    fetchApproveAreaData()
+    fetchExpectedPriceData()
   }, [crop])
+
+  const remainArea = approciateAreaData - approveAreaData
+  const coverageRatio = Math.floor((approveAreaData / approciateAreaData) * 100)
 
   return (
     <main className={style.areaReportContainer}>
@@ -61,13 +97,21 @@ export default function AreaReport() {
           type="mini"
         />
         <DoughnutChart data={data} />
-        <div className={style.cultivationRateInfoWrapper}>
-          남은 면적 : 1234평
-        </div>
+        {coverageRatio < 100 ? (
+          <div className={style.cultivationRateInfoWrapper}>
+            남은 면적 : {remainArea}평
+          </div>
+        ) : (
+          <div className={style.cultivationRateInfoWrapper}>
+            <label>적정 재베 면적 지수 초과</label>
+            <div className={style.highlight}>공급 과잉 우려</div>
+          </div>
+        )}
+
         <div className={style.expectedPriceWrapper}>
           <label>예상 가격</label>
           <div>
-            <span>1020원</span>
+            <span>{expectedPriceData}원</span>
             <span className={style.unit}>(개당)</span>
           </div>
         </div>

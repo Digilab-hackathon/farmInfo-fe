@@ -26,8 +26,19 @@
     background: #fff;
     min-height: 74px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    label {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 21px;
+    }
+
+    .highlight {
+      color: #eb3f27;
+    }
   }
 
   .expectedPriceWrapper {
