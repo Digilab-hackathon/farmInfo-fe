@@ -10,6 +10,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.61.5",
     "@types/react-big-calendar": "^1.16.0",
     "chart.js": "^4.4.6",
     "dayjs": "^1.11.13",
