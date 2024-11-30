@@ -1,6 +1,6 @@
 'use client'
 import { cultivationReportResponse } from '@/types/data'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import CultivatedAreaManagementDetail from './_components/CultivatedAreaManagementDeatil'
 import DetailHeader from '../../_components/DetailHeader'
@@ -11,6 +11,7 @@ import style from '../style.module.scss'
 export default function CultivatedAreaReportDetail() {
   const { id } = useParams()
   const [data, setData] = useState<cultivationReportResponse>()
+  const route = useRouter()
 
   useEffect(() => {
     if (!id) return // id가 없으면 실행하지 않음
@@ -33,6 +34,34 @@ export default function CultivatedAreaReportDetail() {
     fetchData()
   }, [id])
 
+  const handleApprove = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/${id}/approve`,
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
+    if (!response.ok) {
+      throw new Error('Error patching data')
+    }
+    route.push('/admin/cultivated-area-report-management')
+  }
+
+  const handleReject = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/${id}/reject`,
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
+    if (!response.ok) {
+      throw new Error('Error patching data')
+    }
+    route.push('/admin/cultivated-area-report-management')
+  }
+
   return (
     <main className={style.cultivatedAreaReportDetailWrapper}>
       <section>
@@ -52,7 +81,7 @@ export default function CultivatedAreaReportDetail() {
               contents="승인"
               width="153px"
               backgroundColor="#039B72"
-              onClick={() => alert('hi')}
+              onClick={handleApprove}
             />
             <Button
               contents="거절"
@@ -60,7 +89,7 @@ export default function CultivatedAreaReportDetail() {
               backgroundColor="#F7CACA"
               border="1px solid #D57070"
               color="#E74545"
-              onClick={() => alert('hi')}
+              onClick={handleReject}
             />
           </div>
         )}

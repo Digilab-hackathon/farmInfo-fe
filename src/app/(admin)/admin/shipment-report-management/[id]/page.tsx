@@ -1,7 +1,7 @@
 'use client'
 
 import { shipmentReportResponse } from '@/types/data'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import DetailHeader from '../../_components/DetailHeader'
 import { formatDate } from '@/utils/formatDate'
@@ -12,6 +12,7 @@ import ShipmentAreaManagementDetail from './_components/ShipmentManagementDetail
 export default function ShipmentReportDetail() {
   const { id } = useParams()
   const [data, setData] = useState<shipmentReportResponse>()
+  const route = useRouter()
 
   useEffect(() => {
     if (!id) return
@@ -34,8 +35,36 @@ export default function ShipmentReportDetail() {
     fetchData()
   }, [id])
 
+  const handleApprove = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/${id}/approve`,
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
+    if (!response.ok) {
+      throw new Error('Error patching data')
+    }
+    route.push('/admin/shipment-report-management')
+  }
+
+  const handleReject = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/${id}/reject`,
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
+    if (!response.ok) {
+      throw new Error('Error patching data')
+    }
+    route.push('/admin/shipment-report-management')
+  }
+
   return (
-    <main className={style.shipmentAreaReportDetailWrapper}>
+    <main className={style.shipmentReportDetailWrapper}>
       <section>
         <DetailHeader
           id={data?.shipmentReport.id.toString() || ''}
@@ -53,7 +82,7 @@ export default function ShipmentReportDetail() {
               contents="승인"
               width="153px"
               backgroundColor="#039B72"
-              onClick={() => alert('hi')}
+              onClick={handleApprove}
             />
             <Button
               contents="거절"
@@ -61,7 +90,7 @@ export default function ShipmentReportDetail() {
               backgroundColor="#F7CACA"
               border="1px solid #D57070"
               color="#E74545"
-              onClick={() => alert('hi')}
+              onClick={handleReject}
             />
           </div>
         )}

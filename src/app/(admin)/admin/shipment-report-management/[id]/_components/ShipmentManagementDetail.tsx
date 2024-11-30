@@ -4,7 +4,11 @@ import { shipmentReportResponse } from '@/types/data'
 import {
   cropOptions,
   gradeOptions,
-  packagingOptions
+  packagingOptions,
+  productionLocationOptions,
+  tradeTypeOptions,
+  tradingMethodOptions,
+  wholesaleCompanyOptions
 } from '@/constants/options'
 
 interface responseProps {
@@ -56,15 +60,28 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
               />
               <ContentsForm
                 label="도매법인"
-                contents={data.shipmentReport.wholesaleCompany}
+                contents={
+                  wholesaleCompanyOptions.find(
+                    option =>
+                      option.value === data.shipmentReport.wholesaleCompany
+                  )?.label || ''
+                }
               />
               <ContentsForm
                 label="거래 형태"
-                contents={data.shipmentReport.tradingMethod}
+                contents={
+                  tradeTypeOptions.find(
+                    option => option.value === data.shipmentReport.tradeType
+                  )?.label || ''
+                }
               />
               <ContentsForm
                 label="매매 구분"
-                contents={data.shipmentReport.tradeType}
+                contents={
+                  tradingMethodOptions.find(
+                    option => option.value === data.shipmentReport.tradingMethod
+                  )?.label || ''
+                }
               />
             </div>
           </div>
@@ -81,7 +98,12 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
               />
               <ContentsForm
                 label="산지"
-                contents={data.shipmentReport.productionLocation}
+                contents={
+                  productionLocationOptions.find(
+                    option =>
+                      option.value === data.shipmentReport.productionLocation
+                  )?.label || ''
+                }
               />
               <ContentsForm
                 label="품목"
@@ -101,7 +123,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
               />
               <ContentsForm
                 label="단위 (kg)"
-                contents={data.shipmentReport.unit.toString()}
+                contents={`${data.shipmentReport.unit.toString()}kg`}
               />
               <ContentsForm
                 label="등급"
