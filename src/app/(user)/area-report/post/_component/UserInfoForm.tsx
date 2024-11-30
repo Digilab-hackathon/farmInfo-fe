@@ -73,11 +73,6 @@ const UserInfoForm = () => {
           detailLabel="(자택)"
           control={control}
           placeholder="010-1234-5678"
-          rules={{
-            pattern: {
-              value: /^\d{3}\-\d{4}\-\d{4}$/
-            }
-          }}
         />
       </section>
       <Button

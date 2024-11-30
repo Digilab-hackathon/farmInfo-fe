@@ -1,20 +1,20 @@
-import Button from '@/components/Button'
-import InputForm from '@/components/InputForm'
-import { useShipmentStore } from '@/store/useShipmentStore'
-import { ShipmentUserInfo } from '@/types/ShipmentInfoValues'
-import { useForm } from 'react-hook-form'
-import style from '../../style.module.scss'
+import Button from "@/components/Button"
+import InputForm from "@/components/InputForm"
+import { useShipmentStore } from "@/store/useShipmentStore"
+import { ShipmentUserInfo } from "@/types/ShipmentInfoValues"
+import { useForm } from "react-hook-form"
+import style from "../../style.module.scss"
 
 const UserInfoForm = () => {
   const updateUserInfo = useShipmentStore(state => state.updateUserInfo)
   const nextPage = useShipmentStore(state => state.nextPage)
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      name: '',
-      birthDate: '',
-      address: '',
-      phoneNumber: '',
-      homePhoneNumber: ''
+      name: "",
+      birthDate: "",
+      address: "",
+      phoneNumber: "",
+      homePhoneNumber: ""
     }
   })
 

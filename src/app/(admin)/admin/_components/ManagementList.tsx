@@ -1,21 +1,21 @@
-import { cultivationReportResponse, shipmentReportResponse } from '@/types/data'
-import { useRouter } from 'next/navigation'
-import style from '@/styles/components/ManagementList.module.scss'
-import { formatDate } from '@/utils/formatDate'
+import { cultivationReportResponse, shipmentReportResponse } from "@/types/data"
+import { useRouter } from "next/navigation"
+import style from "@/styles/components/ManagementList.module.scss"
+import { formatDate } from "@/utils/formatDate"
 
 type ManagementProps = {
   datas: cultivationReportResponse[] | shipmentReportResponse[]
-  type: 'cultivation' | 'shipment'
+  type: "cultivation" | "shipment"
 }
 
 const ManagementList = ({ datas, type }: ManagementProps) => {
   const route = useRouter()
 
-  const labels = ['상태', '접수번호', '신고자', '지역', '접수시간']
+  const labels = ["상태", "접수번호", "신고자", "지역", "접수시간"]
 
   const handleClick = (id: number) => {
     const path =
-      type === 'shipment'
+      type === "shipment"
         ? `/admin/shipment-report-management/${id}`
         : `/admin/cultivated-area-report-management/${id}`
     route.push(path)
@@ -23,7 +23,7 @@ const ManagementList = ({ datas, type }: ManagementProps) => {
 
   const isCultivationReport = (
     data: cultivationReportResponse | shipmentReportResponse
-  ): data is cultivationReportResponse => 'cultivationReport' in data
+  ): data is cultivationReportResponse => "cultivationReport" in data
 
   const renderRow = (
     id: number,
@@ -40,21 +40,21 @@ const ManagementList = ({ datas, type }: ManagementProps) => {
       <div className={style.column}>
         <div
           className={`${style.status} ${
-            status === 'PENDING'
+            status === "PENDING"
               ? style.pink
-              : status === 'APPROVED'
+              : status === "APPROVED"
                 ? style.green
-                : status === 'REJECTED'
+                : status === "REJECTED"
                   ? style.red
-                  : ''
+                  : ""
           }`}>
-          {status === 'PENDING'
-            ? '열람완료'
-            : status === 'APPROVED'
-              ? '승인완료'
-              : status === 'REJECTED'
-                ? '거절'
-                : 'ERROR'}
+          {status === "PENDING"
+            ? "열람 대기"
+            : status === "APPROVED"
+              ? "승인 완료"
+              : status === "REJECTED"
+                ? "거절"
+                : "ERROR"}
         </div>
       </div>
       <div className={`${style.column} ${style.bold}`}>{id}</div>
