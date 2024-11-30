@@ -1,7 +1,9 @@
+import Button from '@/components/Button'
 import InputForm from '@/components/InputForm'
 import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
 import { CultivatedAreaUserInfo } from '@/types/CultivatedAreaInfoValues'
 import { useForm } from 'react-hook-form'
+import style from '../../style.module.scss'
 
 const UserInfoForm = () => {
   const updateUserInfo = useCultivatedAreaStore(state => state.updateUserInfo)
@@ -22,8 +24,8 @@ const UserInfoForm = () => {
   }
 
   return (
-    <main>
-      <section>
+    <main className={style.infoFormContainer}>
+      <section className={style.formSection}>
         <InputForm
           name="name"
           label="성명"
@@ -78,7 +80,11 @@ const UserInfoForm = () => {
           }}
         />
       </section>
-      <button onClick={handleSubmit(onSubmit)}>다음으로</button>
+      <Button
+        contents="다음으로"
+        onClick={handleSubmit(onSubmit)}
+      />
+      =
     </main>
   )
 }

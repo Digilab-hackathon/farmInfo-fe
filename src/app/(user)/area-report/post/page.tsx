@@ -6,6 +6,7 @@ import TermsOfUse from './_component/TermsOfUse'
 import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
 import FormTab from '../../_compoents/FormTab'
 import { useEffect } from 'react'
+import style from '../style.module.scss'
 
 export default function AreaReport() {
   const currentPage = useCultivatedAreaStore(state => state.currentPage)
@@ -16,8 +17,8 @@ export default function AreaReport() {
   }, [])
 
   return (
-    <main>
-      <FormTab />
+    <main className={style.postReportWrapper}>
+      <FormTab category="cultivated" />
       {currentPage === 1 && <UserInfoForm />}
       {currentPage === 2 && <CultivationInfo />}
       {currentPage === 3 && <TermsOfUse />}
