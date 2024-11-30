@@ -53,5 +53,8 @@
 }
 
 .completeContainer {
+  display: flex;
+  flex-direction: column;
   margin-top: 82px;
+  gap: 40px;
 }
