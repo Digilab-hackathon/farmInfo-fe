@@ -2,8 +2,8 @@ import Button from '@/components/Button'
 import InputForm from '@/components/InputForm'
 import { useShipmentStore } from '@/store/useShipmentStore'
 import { ShipmentUserInfo } from '@/types/ShipmentInfoValues'
-
 import { useForm } from 'react-hook-form'
+import style from '../../style.module.scss'
 
 const UserInfoForm = () => {
   const updateUserInfo = useShipmentStore(state => state.updateUserInfo)
@@ -24,8 +24,8 @@ const UserInfoForm = () => {
   }
 
   return (
-    <main>
-      <section>
+    <main className={style.infoFormContainer}>
+      <section className={style.formSection}>
         <InputForm
           name="name"
           label="성명"

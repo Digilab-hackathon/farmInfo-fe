@@ -1,6 +1,7 @@
 'use client'
 
 import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
+import { useShipmentStore } from '@/store/useShipmentStore'
 import style from '@/styles/components/FormTab.module.scss'
 import Image from 'next/image'
 
@@ -15,7 +16,15 @@ const tabs = [
 ]
 
 const FormTab = ({ type, category }: FormTabProps) => {
-  const currentPage = useCultivatedAreaStore(state => state.currentPage)
+  const cultivatedPage = useCultivatedAreaStore(state => state.currentPage)
+  const shipmentPage = useShipmentStore(state => state.currentPage)
+
+  const currentPage =
+    category === 'cultivated'
+      ? cultivatedPage
+      : category === 'shipment'
+        ? shipmentPage
+        : null
 
   return (
     <div className={style.formTabWrapper}>

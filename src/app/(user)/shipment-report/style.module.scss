@@ -52,6 +52,59 @@
   }
 }
 
+.postReportWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.infoFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+
+  .formSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .labelWrapper {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #039b72;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #7fbbab;
+      background: #d9e8e1;
+    }
+
+    label {
+      color: var(--333, #333);
+      font-size: 18px;
+
+      font-weight: 700;
+      line-height: 23px;
+    }
+  }
+  .bar {
+    height: 1px;
+    background-color: #dcdcdc;
+  }
+}
+
 .completeContainer {
   display: flex;
   flex-direction: column;

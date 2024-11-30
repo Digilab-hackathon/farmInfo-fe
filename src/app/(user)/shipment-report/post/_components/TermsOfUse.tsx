@@ -3,6 +3,8 @@ import { useShipmentStore } from '@/store/useShipmentStore'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
+import style from '../../style.module.scss'
+import Button from '@/components/Button'
 
 const TermsOfUse = () => {
   const router = useRouter()
@@ -53,8 +55,8 @@ const TermsOfUse = () => {
   }
 
   return (
-    <main>
-      <section>
+    <main className={style.infoFormContainer}>
+      <section className={style.formSection}>
         <Checkbox
           name="all"
           label="전체 동의하기"
@@ -75,7 +77,10 @@ const TermsOfUse = () => {
         />
       </section>
 
-      <button onClick={handleSubmit(onSubmit)}>완료</button>
+      <Button
+        contents="완료"
+        onClick={handleSubmit(onSubmit)}
+      />
     </main>
   )
 }
