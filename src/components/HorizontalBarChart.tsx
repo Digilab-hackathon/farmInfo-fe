@@ -28,14 +28,16 @@ const CustomLabel: React.FC<CustomLabelProps> = ({ x, y, name, value }) => {
   const maxLength = 4 // 텍스트 길이를 기준으로 줄 바꿈을 처리합니다.
   const splitName = name.match(new RegExp(`.{1,${maxLength}}`, "g")) || []
   return (
-    <g transform={`translate(${x},${y})`}>
+    <g
+      transform={`translate(${x},${y})`}
+      style={{ fontSize: "14px", color: "#565656", fontWeight: "700" }}>
       {splitName.map((line, index) => (
         <text
           key={index}
           x={-50}
           y={5 + index * 20} // 줄마다 y 값을 변경하여 위아래로 배치
           textAnchor="start"
-          fill="#333">
+          fill="#565656">
           {line}
         </text>
       ))}
@@ -43,7 +45,7 @@ const CustomLabel: React.FC<CustomLabelProps> = ({ x, y, name, value }) => {
         x={275}
         y={5} // value는 name의 텍스트가 끝난 후 위치
         textAnchor="start"
-        fill="#333">
+        fill="#565656">
         {Math.floor(value)}kg
       </text>
     </g>

@@ -30,6 +30,7 @@
 }
 
 .cropDataWrapper {
+  position: relative;
   label {
     color: #716f5e;
     font-size: 16px;
@@ -51,12 +52,68 @@
     font-weight: 500;
     line-height: 22px;
 
+    .labelWrapper {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 22px;
+    }
+
     .cropName {
       display: flex;
       align-items: center;
       font-size: 26px;
       font-weight: 800;
       line-height: 25px;
+    }
+  }
+}
+.doughnutChartWrapper {
+  height: 150px;
+
+  .ratio,
+  .doughnutChart,
+  ul {
+    position: absolute;
+  }
+
+  .ratio {
+    color: #4f4f4f;
+    font-size: 22.208px;
+    font-weight: 700;
+    line-height: 27.76px;
+    right: 35%;
+    bottom: 43%;
+  }
+
+  .doughnutChart {
+    width: 171px;
+    height: 171px;
+    right: 10%;
+    bottom: 20%;
+  }
+  ul {
+    left: 10%;
+    bottom: 10%;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 22.089px; /* 157.782% */
+
+      .color {
+        width: 17px;
+        height: 17px;
+        border: none;
+        border-radius: 2.454px;
+      }
+      .unit {
+        font-size: 9.818px;
+        font-weight: 700;
+      }
     }
   }
 }

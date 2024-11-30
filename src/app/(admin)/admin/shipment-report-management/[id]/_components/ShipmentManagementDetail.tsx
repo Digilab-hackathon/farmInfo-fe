@@ -1,6 +1,6 @@
-import ContentsForm from '@/app/(admin)/_components/ContentsForm'
-import style from '../../style.module.scss'
-import { shipmentReportResponse } from '@/types/data'
+import ContentsForm from "@/app/(admin)/_components/ContentsForm"
+import style from "../../style.module.scss"
+import { shipmentReportResponse } from "@/types/data"
 import {
   cropOptions,
   gradeOptions,
@@ -9,7 +9,7 @@ import {
   tradeTypeOptions,
   tradingMethodOptions,
   wholesaleCompanyOptions
-} from '@/constants/options'
+} from "@/constants/options"
 
 interface responseProps {
   data: shipmentReportResponse | undefined
@@ -18,7 +18,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
   return (
     <>
       {data && (
-        <div className={style.shipmentAreaManagementDetailContainer}>
+        <div className={style.shipmentManagementDetailContainer}>
           <div className={style.formSection}>
             <div className={style.labelWrapper}>
               <div>1</div>
@@ -43,7 +43,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
               />
               <ContentsForm
                 label="연락처 (자택)"
-                contents={data.memberInfo.homePhoneNumber ?? ''}
+                contents={data.memberInfo.homePhoneNumber ?? ""}
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                   wholesaleCompanyOptions.find(
                     option =>
                       option.value === data.shipmentReport.wholesaleCompany
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -72,7 +72,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   tradeTypeOptions.find(
                     option => option.value === data.shipmentReport.tradeType
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -80,7 +80,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   tradingMethodOptions.find(
                     option => option.value === data.shipmentReport.tradingMethod
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
             </div>
@@ -102,7 +102,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                   productionLocationOptions.find(
                     option =>
                       option.value === data.shipmentReport.productionLocation
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -110,7 +110,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   cropOptions.find(
                     option => option.value === data.shipmentReport.crop
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -118,7 +118,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   packagingOptions.find(
                     option => option.value === data.shipmentReport.packaging
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -130,7 +130,7 @@ const ShipmentAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   gradeOptions.find(
                     option => option.value === data.shipmentReport.grade
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
             </div>

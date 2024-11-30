@@ -40,13 +40,13 @@ export default function Home() {
     fetchAnalytics()
   }, [])
 
-  // const cropRatios = ratios?.cropRatios
-  // const cropRatiosData = cropRatios
-  //   ? Object.entries(cropRatios)
-  //       .sort((a, b) => b[1] - a[1])
-  //       .slice(0, 3)
-  //   : []
-
+  const cropRatios = ratios?.cropRatios
+  const cropRatiosData = cropRatios
+    ? Object.entries(cropRatios)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+    : []
+  const cropRatiosValues = cropRatiosData.map(([, value]) => value)
   const yieldPerArea = ratios?.yieldPerArea
   const yieldPerAreaData = yieldPerArea
     ? Object.entries(yieldPerArea)
@@ -65,8 +65,8 @@ export default function Home() {
   const data = {
     datasets: [
       {
-        data: [1, 2, 3],
-        backgroundColor: ["#17D1F8", "#009974", "#60D1A0"]
+        data: cropRatiosValues,
+        backgroundColor: backgroundColors
       }
     ]
   }
@@ -103,7 +103,7 @@ export default function Home() {
             <label>나의 농작 데이터</label>
             <div className={style.mostCropWrapper}>
               <div className={style.contentsWrapper}>
-                <div>
+                <div className={style.labelWrapper}>
                   <div>내 재배지에</div>
                   <div>가장 많은 품목</div>
                 </div>
@@ -117,10 +117,34 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div style={{ width: "171px", height: "171px" }}>
-                <div></div>
-                <DoughnutChart data={data} />
-                <div></div>
+              <div className={style.doughnutChartWrapper}>
+                <div className={style.doughnutChart}>
+                  <div className={style.ratio}>
+                    {Math.floor(Math.max(...cropRatiosValues))}%
+                  </div>
+                  <DoughnutChart data={data} />
+                </div>
+                <ul className={style.list}>
+                  {cropRatiosData.map((cropRatios, index) => (
+                    <li key={cropRatios[0]}>
+                      <div
+                        className={style.color}
+                        style={{
+                          backgroundColor: backgroundColors[index]
+                        }}></div>
+                      <div>
+                        {
+                          cropOptions.find(
+                            option => option.value === cropRatios[0]
+                          )?.label
+                        }
+                      </div>
+                      <div className={style.unit}>
+                        {Math.floor(cropRatios[1])}%
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
