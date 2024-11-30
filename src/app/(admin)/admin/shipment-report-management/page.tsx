@@ -4,11 +4,11 @@ import useTabsStore from '@/store/useTabsStore'
 import Tab from '../../_components/Tab'
 import ManagementList from '../_components/ManagementList'
 import { useEffect, useState } from 'react'
-import { shipmentReport } from '@/types/data'
+import { shipmentReportResponse } from '@/types/data'
 
 export default function ShipmentReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)
-  const [datas, setDatas] = useState<shipmentReport[]>([])
+  const [datas, setDatas] = useState<shipmentReportResponse[]>([])
 
   useEffect(() => {
     const fetchData = async () => {

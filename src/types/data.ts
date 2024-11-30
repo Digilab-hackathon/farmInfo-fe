@@ -1,14 +1,14 @@
 import { CultivatedAreaReportInfo } from './CultivatedAreaInfoValues'
 import { ShipmentReportInfo } from './ShipmentInfoValues'
 
-export type cultivationReport = CultivatedAreaReportInfo & {
+export type cultivationReportResponse = CultivatedAreaReportInfo & {
   id: number
   memberId: number
   status: string
   createdAt: string
 }
 
-export type shipmentReport = ShipmentReportInfo & {
+export type shipmentReportResponse = ShipmentReportInfo & {
   id: number
   memberId: number
   status: string

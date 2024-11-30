@@ -4,11 +4,11 @@ import useTabsStore from '@/store/useTabsStore'
 import Tab from '../../_components/Tab'
 import ManagementList from '../_components/ManagementList'
 import { useEffect, useState } from 'react'
-import { cultivationReport } from '@/types/data'
+import { cultivationReportResponse } from '@/types/data'
 
 export default function CultivatedAreaReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)
-  const [datas, setDatas] = useState<cultivationReport[]>([])
+  const [datas, setDatas] = useState<cultivationReportResponse[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
