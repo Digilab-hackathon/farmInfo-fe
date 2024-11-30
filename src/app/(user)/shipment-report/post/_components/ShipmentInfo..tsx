@@ -46,7 +46,7 @@ const ShipmentInfo = () => {
           label="출하예정일"
           control={control}
           placeholder="출하 예정일을 입력해 주세요."
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: true }}
         />
         <Dropdown
           name="wholesaleCompany"
@@ -60,14 +60,14 @@ const ShipmentInfo = () => {
           label="거래 형태"
           control={control}
           options={tradeTypeOptions}
-          rules={{ required: '필수 선택 값입니다.' }}
+          rules={{ required: true }}
         />
         <RadioGroup
           name="tradingMethod"
           label="매매 구분"
           control={control}
           options={tradingMethodOptions}
-          rules={{ required: '필수 선택 값입니다.' }}
+          rules={{ required: true }}
         />
         <InputForm
           name="producerName"
@@ -75,7 +75,7 @@ const ShipmentInfo = () => {
           detailLabel="(법인명)"
           control={control}
           placeholder="생산자 성명을 입력해 주세요."
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: true }}
         />
         <Dropdown
           name="productionLocation"

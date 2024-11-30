@@ -32,7 +32,7 @@ const UserInfoForm = () => {
           detailLabel="(법인명)"
           control={control}
           placeholder="홍길동"
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: true }}
         />
         <InputForm
           name="birthDate"
@@ -41,7 +41,7 @@ const UserInfoForm = () => {
           control={control}
           placeholder="1980.11.02"
           rules={{
-            required: '필수 입력 값입니다.',
+            required: true,
             pattern: {
               value: /^\d{4}\.\d{2}\.\d{2}$/
             }
@@ -52,7 +52,7 @@ const UserInfoForm = () => {
           label="주소"
           control={control}
           placeholder="덕현로11 123번지"
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: true }}
         />
         <InputForm
           name="phoneNumber"
@@ -61,7 +61,7 @@ const UserInfoForm = () => {
           control={control}
           placeholder="010-1234-5678"
           rules={{
-            required: '필수 입력 값입니다.',
+            required: true,
             pattern: {
               value: /^\d{3}\-\d{4}\-\d{4}$/
             }
@@ -73,11 +73,6 @@ const UserInfoForm = () => {
           detailLabel="(자택)"
           control={control}
           placeholder="010-1234-5678"
-          rules={{
-            pattern: {
-              value: /^\d{3}\-\d{4}\-\d{4}$/
-            }
-          }}
         />
       </section>
       <Button

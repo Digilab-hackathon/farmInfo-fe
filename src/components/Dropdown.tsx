@@ -38,7 +38,9 @@ const Dropdown = <T extends FieldValues>({
 
   return (
     <div className={style.dropDownContainer}>
-      <label>{label}</label>
+      <label>
+        {label} {rules && '*'}
+      </label>
       <div
         className={style.dropdown}
         onClick={() => setIsOpen(prev => !prev)}>
