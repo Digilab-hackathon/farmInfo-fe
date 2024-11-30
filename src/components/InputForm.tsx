@@ -1,6 +1,7 @@
 'use client'
 
 import { useController, FieldValues, Path, Control } from 'react-hook-form'
+import style from '@/styles/components/InputForm.module.scss'
 
 interface InputProps<T extends FieldValues> {
   name: Path<T>
@@ -21,21 +22,18 @@ const InputForm = <T extends FieldValues>({
   type = 'text',
   rules
 }: InputProps<T>) => {
-  const {
-    field,
-    fieldState: { error }
-  } = useController<T>({
+  const { field } = useController<T>({
     name,
     control,
     rules
   })
 
   return (
-    <>
+    <div className={style.inputFormWrapper}>
       <label>
         <span>{label}</span>
         <span> {detailLabel}</span>
-        {rules && '*'}
+        {rules && <span>*</span>}
       </label>
       <input
         {...field}
@@ -44,8 +42,7 @@ const InputForm = <T extends FieldValues>({
         placeholder={placeholder}
         value={field.value || ''}
       />
-      {error && <span>{error.message}</span>}
-    </>
+    </div>
   )
 }
 
