@@ -5,6 +5,7 @@ import Tab from '../../_components/Tab'
 import ManagementList from '../_components/ManagementList'
 import { useEffect, useState } from 'react'
 import { cultivationReportResponse } from '@/types/data'
+import style from './style.module.scss'
 
 export default function CultivatedAreaReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)
@@ -26,14 +27,17 @@ export default function CultivatedAreaReportManagement() {
   }, [activeTab])
 
   return (
-    <div>
+    <main className={style.cultivatedAreaReportManagementContainer}>
+      <div className={style.label}>
+        <label>재배면적 신고 관리</label>
+      </div>
       <Tab />
       {activeTab && (
         <ManagementList
           datas={datas}
-          type="cultivated-area"
+          type="cultivation"
         />
       )}
-    </div>
+    </main>
   )
 }

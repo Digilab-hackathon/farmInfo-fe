@@ -1,0 +1,23 @@
+.tabWrapper {
+  display: flex;
+  gap: 5px;
+
+  .btnDefault {
+    width: 198px;
+    border: none;
+    text-align: center;
+    padding: 16px 0;
+    border-radius: 2px 2px 0px 0px;
+    border-top: 4px solid var(--gray3, #929292);
+    background: #faf8f4;
+    color: var(--gray4, #808184);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .btnActive {
+    border-color: #039b72;
+    color: #000;
+  }
+}

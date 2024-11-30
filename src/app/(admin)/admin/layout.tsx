@@ -5,7 +5,9 @@ export default function AdminLayout({
 }>) {
   return (
     <div>
-      <div style={{ margin: 'auto', padding: '20px' }}>{children}</div>
+      <div style={{ margin: 'auto', padding: '20px', maxWidth: '1160px' }}>
+        {children}
+      </div>
     </div>
   )
 }

@@ -39,11 +39,45 @@
     font-weight: 500;
     line-height: normal;
 
-    span {
+    .status {
+      text-align: center;
+      width: 84px;
       border-radius: 10px;
-      background: #f1d2f1;
-      color: #af3baf;
+      background: gray;
+      color: black;
       padding: 8px 12px;
     }
+
+    .blue {
+      background-color: #d5eef4;
+      color: #006c9b;
+    }
+
+    .pink {
+      background-color: #f1d2f1;
+      color: #af3baf;
+    }
+    .green {
+      background-color: #cdebe3;
+      color: #004b37;
+    }
+    .red {
+      background-color: #f7caca;
+      color: #e74545;
+    }
+  }
+
+  .bold {
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .small {
+    color: #686868;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
   }
 }
