@@ -8,7 +8,7 @@ export default function layout({
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Header title="출하량 신고" />
-      <div style={{ padding: '46px 26px' }}>{children}</div>
+      <div style={{ padding: '0 26px' }}>{children}</div>
     </div>
   )
 }
