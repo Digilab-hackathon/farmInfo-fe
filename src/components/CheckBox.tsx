@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import { useController, Control, FieldValues, Path } from 'react-hook-form'
+import style from '@/styles/components/Checkbox.module.scss'
 
 interface CheckboxProps<T extends FieldValues> {
   name: Path<T>
@@ -15,10 +17,7 @@ const Checkbox = <T extends FieldValues>({
   rules,
   onChange
 }: CheckboxProps<T>) => {
-  const {
-    field,
-    fieldState: { error }
-  } = useController<T>({
+  const { field } = useController<T>({
     name,
     control,
     rules
@@ -33,17 +32,26 @@ const Checkbox = <T extends FieldValues>({
   }
 
   return (
-    <div>
+    <div className={style.checkboxWrapper}>
       <label>
+        <Image
+          src={`${
+            field.value
+              ? '/icons/radio-checked.png'
+              : '/icons/radio-default.png'
+          }`}
+          alt="기본 체크박스 버튼"
+          width={20}
+          height={20}
+        />
         <input
           type="checkbox"
           {...field}
           onChange={handleChange}
           checked={field.value || false}
         />
-        {label}
+        <span>{label}</span>
       </label>
-      {error && <span>{error.message}</span>}
     </div>
   )
 }

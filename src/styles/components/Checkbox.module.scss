@@ -1,0 +1,22 @@
+.checkboxWrapper {
+  display: flex;
+  flex-direction: column;
+  color: red;
+
+  label {
+    display: flex;
+    gap: 9px;
+    margin: 7px 0;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    span {
+      color: #626262;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+}
