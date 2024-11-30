@@ -16,10 +16,15 @@ export const cropOptions = [
 
 export const landCategoryOptions = [
   { label: "'지목'을 작성해 주세요.", value: '' },
-  { label: '논', value: 'PADDY_FIELD' },
-  { label: '밭', value: 'FIELD' },
+  { label: '답(논)', value: 'PADDY_FIELD' },
+  { label: '전(밭)', value: 'FIELD' },
   { label: '과수원', value: 'ORCHARD' },
-  { label: '목장', value: 'MEADOW' }
+  { label: '목장용지', value: 'PASTURE' },
+  { label: '잡종지', value: 'MISCELLANEOUS' },
+  { label: '임야(산지)', value: 'FOREST' },
+  { label: '농막', value: 'FARM_HUT' },
+  { label: '비닐하우스', value: 'VINYL_HOUSE' },
+  { label: '고정식 온실', value: 'GREENHOUSE' }
 ]
 
 export const selfCultivatedOptions = [
@@ -32,7 +37,7 @@ export const wholesaleCompanyOptions = [
   { label: '제주넷주식회사', value: 'JEJUNET' },
   { label: '제주농협', value: 'JEJU_NONGHYUP' },
   { label: '제주도청 농정과', value: 'JEJU_AGRICULTURE' },
-  { label: '제주도 농산물 도매시', value: 'JEJU_WHILESALE' }
+  { label: '제주도 농산물 도매시', value: 'JEJU_WHOLESALE' }
 ]
 
 export const tradeTypeOptions = [
@@ -59,7 +64,7 @@ export const packagingOptions = [
 
 export const gradeOptions = [
   { label: '품목의 등급을 선택해 주세요.', value: '' },
-  { label: '특', value: 'PREMIUM' },
-  { label: '상', value: 'STANDARD' },
-  { label: '보통', value: 'SECONDARY' }
+  { label: '상', value: 'PREMIUM' },
+  { label: '중', value: 'INTERMEDIATE' },
+  { label: '하', value: 'BASIC' }
 ]
