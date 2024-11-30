@@ -16,6 +16,12 @@
     padding: 10px 16px;
     outline: none;
     font-size: 16px;
+    border: 1px solid var(--gray-3, #d5d8dd);
+    background: var(--unnamed, #fff);
+
+    &::placeholder {
+      color: #b6b6b6;
+    }
   }
 
   input:focus {
