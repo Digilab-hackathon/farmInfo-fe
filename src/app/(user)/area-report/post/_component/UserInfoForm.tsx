@@ -1,20 +1,20 @@
-import Button from '@/components/Button'
-import InputForm from '@/components/InputForm'
-import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
-import { CultivatedAreaUserInfo } from '@/types/CultivatedAreaInfoValues'
-import { useForm } from 'react-hook-form'
-import style from '../../style.module.scss'
+import Button from "@/components/Button"
+import InputForm from "@/components/InputForm"
+import { useCultivatedAreaStore } from "@/store/useCultivatedAreaStore"
+import { CultivatedAreaUserInfo } from "@/types/CultivatedAreaInfoValues"
+import { useForm } from "react-hook-form"
+import style from "../../style.module.scss"
 
 const UserInfoForm = () => {
   const updateUserInfo = useCultivatedAreaStore(state => state.updateUserInfo)
   const nextPage = useCultivatedAreaStore(state => state.nextPage)
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      name: '',
-      birthDate: '',
-      address: '',
-      phoneNumber: '',
-      homePhoneNumber: ''
+      name: "",
+      birthDate: "",
+      address: "",
+      phoneNumber: "",
+      homePhoneNumber: ""
     }
   })
 
@@ -32,7 +32,7 @@ const UserInfoForm = () => {
           detailLabel="(법인명)"
           control={control}
           placeholder="홍길동"
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: "필수 입력 값입니다." }}
         />
         <InputForm
           name="birthDate"
@@ -41,7 +41,7 @@ const UserInfoForm = () => {
           control={control}
           placeholder="1980.11.02"
           rules={{
-            required: '필수 입력 값입니다.',
+            required: "필수 입력 값입니다.",
             pattern: {
               value: /^\d{4}\.\d{2}\.\d{2}$/
             }
@@ -52,7 +52,7 @@ const UserInfoForm = () => {
           label="주소"
           control={control}
           placeholder="덕현로11 123번지"
-          rules={{ required: '필수 입력 값입니다.' }}
+          rules={{ required: "필수 입력 값입니다." }}
         />
         <InputForm
           name="phoneNumber"
@@ -61,7 +61,7 @@ const UserInfoForm = () => {
           control={control}
           placeholder="010-1234-5678"
           rules={{
-            required: '필수 입력 값입니다.',
+            required: "필수 입력 값입니다.",
             pattern: {
               value: /^\d{3}\-\d{4}\-\d{4}$/
             }
@@ -84,7 +84,6 @@ const UserInfoForm = () => {
         contents="다음으로"
         onClick={handleSubmit(onSubmit)}
       />
-      =
     </main>
   )
 }

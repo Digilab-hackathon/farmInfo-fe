@@ -1,18 +1,76 @@
-import DoughnutChart from '@/components/DoughnutChart'
-import Header from '../_components/Header/Header'
-import style from './style.module.scss'
-import Image from 'next/image'
+"use client"
+
+import DoughnutChart from "@/components/DoughnutChart"
+import Header from "../_components/Header/Header"
+import style from "./style.module.scss"
+import Image from "next/image"
+import HorizontalBarChart from "@/components/HorizontalBarChart"
+import { useEffect, useState } from "react"
+import { cropOptions } from "@/constants/options"
+import { mapEnglishToKorean } from "@/utils/mapEnglishToKorean"
+import { addBarChartOptions } from "@/utils/addBarChartOptions"
+
+type ratioType = {
+  cropRatios: {
+    [key: string]: number // 각 항목의 키는 문자열이고, 값은 숫자입니다.
+  }
+  yieldPerArea: {
+    [key: string]: number
+  }
+}
 
 export default function Home() {
+  const [ratios, setRatios] = useState<ratioType | null>(null)
+
+  useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/members/analytics?phoneNumber=010-1234-5678`
+        )
+        if (!response.ok) {
+          throw new Error("데이터를 가져오는 데 실패했습니다.")
+        }
+        const result = await response.json()
+        setRatios(result)
+      } catch (error) {
+        console.error("Fetch error:", error)
+      }
+    }
+    fetchAnalytics()
+  }, [])
+
+  // const cropRatios = ratios?.cropRatios
+  // const cropRatiosData = cropRatios
+  //   ? Object.entries(cropRatios)
+  //       .sort((a, b) => b[1] - a[1])
+  //       .slice(0, 3)
+  //   : []
+
+  const yieldPerArea = ratios?.yieldPerArea
+  const yieldPerAreaData = yieldPerArea
+    ? Object.entries(yieldPerArea)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+    : []
+  const refinedData = mapEnglishToKorean(yieldPerAreaData, cropOptions)
+  const backgroundColors = ["#17D1F8", "#009974", "#60D1A0"]
+
+  // 배경 색상 추가
+  const formattedYieldPerAreaData = addBarChartOptions(
+    refinedData,
+    backgroundColors
+  )
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow'],
     datasets: [
       {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+        data: [1, 2, 3],
+        backgroundColor: ["#17D1F8", "#009974", "#60D1A0"]
       }
     ]
   }
+
   return (
     <div>
       <Header
@@ -29,7 +87,7 @@ export default function Home() {
             height={24}
           />
           <div>
-            <span style={{ fontWeight: '700' }}>[공지] </span>
+            <span style={{ fontWeight: "700" }}>[공지] </span>
             <span>재배면적 신고기간 공지</span>
           </div>
           <Image
@@ -59,12 +117,16 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <DoughnutChart data={data} />
+              <div style={{ width: "171px", height: "171px" }}>
+                <div></div>
+                <DoughnutChart data={data} />
+                <div></div>
+              </div>
             </div>
           </div>
           <div className={style.myShipmentWrapper}>
             <label>나의 품목당 2024년 출하량</label>
-            <DoughnutChart data={data} />
+            <HorizontalBarChart data={formattedYieldPerAreaData} />
           </div>
         </section>
 
