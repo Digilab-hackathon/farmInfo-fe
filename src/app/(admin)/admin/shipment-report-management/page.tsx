@@ -1,10 +1,11 @@
-'use client'
+"use client"
 
-import useTabsStore from '@/store/useTabsStore'
-import Tab from '../../_components/Tab'
-import ManagementList from '../_components/ManagementList'
-import { useEffect, useState } from 'react'
-import { shipmentReportResponse } from '@/types/data'
+import useTabsStore from "@/store/useTabsStore"
+import Tab from "../../_components/Tab"
+import ManagementList from "../_components/ManagementList"
+import { useEffect, useState } from "react"
+import { shipmentReportResponse } from "@/types/data"
+import style from "./style.module.scss"
 
 export default function ShipmentReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)
@@ -16,7 +17,7 @@ export default function ShipmentReportManagement() {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/status/${activeTab}`
       )
       if (!response.ok) {
-        throw new Error('데이터를 가져오는 데 실패했습니다.')
+        throw new Error("데이터를 가져오는 데 실패했습니다.")
       }
       const result = await response.json()
       setDatas(result)
@@ -26,7 +27,10 @@ export default function ShipmentReportManagement() {
   }, [activeTab])
 
   return (
-    <div>
+    <div className={style.shipmentReportManagementContainer}>
+      <div className={style.label}>
+        <label>출하량 신고 관리</label>
+      </div>
       <Tab />
       {activeTab && (
         <ManagementList
