@@ -17,7 +17,7 @@ export default function ShipmentReport() {
           <div>상시 가능</div>
         </div>
         <div className={style.linkWrapper}>
-          <Link href="/area-report/post">등록하기</Link>
+          <Link href="/shipment-report/post">등록하기</Link>
         </div>
       </div>
     </main>

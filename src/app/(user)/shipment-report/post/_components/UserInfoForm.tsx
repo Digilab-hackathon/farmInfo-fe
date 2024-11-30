@@ -1,3 +1,4 @@
+import Button from '@/components/Button'
 import InputForm from '@/components/InputForm'
 import { useShipmentStore } from '@/store/useShipmentStore'
 import { ShipmentUserInfo } from '@/types/ShipmentInfoValues'
@@ -79,7 +80,10 @@ const UserInfoForm = () => {
           }}
         />
       </section>
-      <button onClick={handleSubmit(onSubmit)}>다음으로</button>
+      <Button
+        contents="다음으로"
+        onClick={handleSubmit(onSubmit)}
+      />
     </main>
   )
 }
