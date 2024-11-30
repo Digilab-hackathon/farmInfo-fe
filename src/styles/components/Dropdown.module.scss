@@ -5,43 +5,60 @@
     line-height: 23px;
   }
 
-  select {
-    height: 45px;
-    border-radius: 7.2px;
-    border: 1.2px solid var(--gray1, #cbcccc);
-    background: var(--white-black-white, #fff);
-    padding: 10px 15px;
-    appearance: none; /* 기본 드롭다운 화살표 제거 */
-    -webkit-appearance: none; /* Safari에서 드롭다운 화살표 제거 */
-    -moz-appearance: none; /* Firefox에서 드롭다운 화살표 제거 */
+  .dropdown {
+    display: flex;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-3, #d5d8dd);
+    background: var(--unnamed, #fff);
+    border-radius: 8px;
     cursor: pointer;
-    background-image: url('/icons/dropdown-arrow.png');
-    background-position: right 10px center; /* 화살표 이미지 위치 */
-    background-repeat: no-repeat; /* 화살표 이미지 반복하지 않음 */
-    background-size: 24px 24px;
-    font-size: 16px;
+
+    .selectWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 23px;
+    }
+
+    .placeholder {
+      color: #b6b6b6;
+    }
+
+    .selected {
+      color: black;
+    }
   }
 
-  .defaultSelect {
+  .options {
     width: 100%;
-  }
-  .miniSelect {
-    width: 116px;
-  }
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid var(--gray-3, #d5d8dd);
+    background: var(--unnamed, #fff);
+    z-index: 10;
+    max-height: 300px;
+    overflow-y: auto;
 
-  select option {
-    width: 100%;
-    background-color: #fff;
-    color: red;
-    padding: 8px;
-    font-size: 16px;
-  }
+    .option {
+      padding: 8px;
+      margin: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 23px;
+      cursor: pointer;
 
-  select option:hover {
-    background-color: #f1f1f1; /* 옵션 hover 상태 스타일 */
-  }
+      &:hover {
+        border-radius: 4px;
+        background-color: #f4f4f4;
+      }
 
-  select option:active {
-    background-color: #ddd; /* 옵션 클릭 상태 스타일 */
+      &.active {
+        border-radius: 4px;
+        background: #e7e7e7;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 export const cropOptions = [
-  { label: '품목을 선택해 주세요.', value: '' },
+  { label: '품목을 선택해 주세요.', value: '', default: true },
   { label: '월동무', value: 'RADISH' },
   { label: '양배추', value: 'CABBAGE' },
   { label: '당근', value: 'CARROT' },
@@ -15,7 +15,7 @@ export const cropOptions = [
 ]
 
 export const landCategoryOptions = [
-  { label: "'지목'을 작성해 주세요.", value: '' },
+  { label: "'지목'을 작성해 주세요.", value: '', default: true },
   { label: '답(논)', value: 'PADDY_FIELD' },
   { label: '전(밭)', value: 'FIELD' },
   { label: '과수원', value: 'ORCHARD' },
@@ -33,7 +33,7 @@ export const selfCultivatedOptions = [
 ]
 
 export const wholesaleCompanyOptions = [
-  { label: '도매처를 선택해 주세요.', value: '' },
+  { label: '도매처를 선택해 주세요.', value: '', default: true },
   { label: '제주넷주식회사', value: 'JEJUNET' },
   { label: '제주농협', value: 'JEJU_NONGHYUP' },
   { label: '제주도청 농정과', value: 'JEJU_AGRICULTURE' },
@@ -51,7 +51,7 @@ export const tradingMethodOptions = [
 ]
 
 export const productionLocationOptions = [
-  { label: '생산지 형태를 선택해 주세요.', value: '' },
+  { label: '생산지 형태를 선택해 주세요.', value: '', default: true },
   { label: '시설', value: 'GREENHOUSE' },
   { label: '노지', value: 'OUTDOOR' },
   { label: '비닐하우스', value: 'VINYL_HOUSE' }
@@ -63,7 +63,7 @@ export const packagingOptions = [
 ]
 
 export const gradeOptions = [
-  { label: '품목의 등급을 선택해 주세요.', value: '' },
+  { label: '품목의 등급을 선택해 주세요.', value: '', default: true },
   { label: '상', value: 'PREMIUM' },
   { label: '중', value: 'INTERMEDIATE' },
   { label: '하', value: 'BASIC' }
