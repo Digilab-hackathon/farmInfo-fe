@@ -9,25 +9,29 @@ import Button from '@/components/Button'
 import style from '../style.module.scss'
 
 export default function CultivatedAreaReportDetail() {
-  const params = useParams()
+  const { id } = useParams()
   const [data, setData] = useState<cultivationReportResponse>()
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/${params.id ?? ''}`
-      )
-      if (!response.ok) {
-        throw new Error('데이터를 가져오는 데 실패했습니다.')
-      }
-      const result = await response.json()
+    if (!id) return // id가 없으면 실행하지 않음
 
-      if (result) {
-        setData(result)
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/${id}`
+        )
+        if (!response.ok) {
+          throw new Error('데이터를 가져오는 데 실패했습니다.')
+        }
+        const result = await response.json()
+        setData(result) // 데이터 설정
+      } catch (error) {
+        console.error(error) // 에러 처리
       }
     }
+
     fetchData()
-  }, [params.id])
+  }, [id])
 
   return (
     <main className={style.cultivatedAreaReportDetailWrapper}>
@@ -41,8 +45,8 @@ export default function CultivatedAreaReportDetail() {
         <CultivatedAreaManagementDetail data={data} />
       </section>
       {/* 접수 상태일 때만 버튼 띄우기 */}
-      <section style={{ marginTop: '30px' }}>
-        {data?.cultivationReport.status === 'PENDING' ? (
+      <section style={{ marginBottom: '30px' }}>
+        {data?.cultivationReport.status === 'PENDING' && (
           <div className={style.buttonWrapper}>
             <Button
               contents="승인"
@@ -59,7 +63,7 @@ export default function CultivatedAreaReportDetail() {
               onClick={() => alert('hi')}
             />
           </div>
-        ) : null}
+        )}
       </section>
     </main>
   )
