@@ -24,7 +24,7 @@ export default function DataManagement() {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-area`,
       {
-        method: "PATHCH",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       }
