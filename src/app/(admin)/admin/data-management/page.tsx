@@ -7,6 +7,7 @@ import { Controller, useForm } from "react-hook-form"
 import { cropOptions } from "@/constants/options"
 import Button from "@/components/Button"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export default function DataManagement() {
   const { control, watch, handleSubmit } = useForm({
@@ -52,6 +53,16 @@ export default function DataManagement() {
             </button>
           ))}
         </div>
+      </section>
+      <section>
+        {activeTab === 1 && (
+          <Image
+            src="/images/dumy.png"
+            alt="데이터관리 더미"
+            width={1085}
+            height={603}
+          />
+        )}
       </section>
       <form>
         {activeTab === 2 && (
