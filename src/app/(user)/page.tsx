@@ -47,6 +47,9 @@ export default function Home() {
         .slice(0, 3)
     : []
   const cropRatiosValues = cropRatiosData.map(([, value]) => value)
+  const maxRatios =
+    cropRatiosValues.length > 0 ? Math.max(...cropRatiosValues) : 0
+
   const yieldPerArea = ratios?.yieldPerArea
   const yieldPerAreaData = yieldPerArea
     ? Object.entries(yieldPerArea)
@@ -120,7 +123,7 @@ export default function Home() {
               <div className={style.doughnutChartWrapper}>
                 <div className={style.doughnutChart}>
                   <div className={style.ratio}>
-                    {Math.floor(Math.max(...cropRatiosValues))}%
+                    {maxRatios ? `${Math.floor(maxRatios)}%` : ""}
                   </div>
                   <DoughnutChart data={data} />
                 </div>
