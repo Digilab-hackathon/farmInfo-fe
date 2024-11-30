@@ -3,6 +3,11 @@
 import { shipmentReportResponse } from '@/types/data'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import DetailHeader from '../../_components/DetailHeader'
+import { formatDate } from '@/utils/formatDate'
+import style from '../style.module.scss'
+import Button from '@/components/Button'
+import ShipmentAreaManagementDetail from './_components/ShipmentManagementDetail'
 
 export default function ShipmentReportDetail() {
   const { id } = useParams()
@@ -29,5 +34,38 @@ export default function ShipmentReportDetail() {
     fetchData()
   }, [id])
 
-  return <div>{data?.memberInfo.address}</div>
+  return (
+    <main className={style.shipmentAreaReportDetailWrapper}>
+      <section>
+        <DetailHeader
+          id={data?.shipmentReport.id.toString() || ''}
+          createdAt={formatDate(data?.shipmentReport.createdAt || '')}
+        />
+      </section>
+      <section style={{ padding: '0 45px' }}>
+        <ShipmentAreaManagementDetail data={data} />
+      </section>
+      {/* 접수 상태일 때만 버튼 띄우기 */}
+      <section style={{ marginBottom: '30px' }}>
+        {data?.shipmentReport.status === 'PENDING' && (
+          <div className={style.buttonWrapper}>
+            <Button
+              contents="승인"
+              width="153px"
+              backgroundColor="#039B72"
+              onClick={() => alert('hi')}
+            />
+            <Button
+              contents="거절"
+              width="153px"
+              backgroundColor="#F7CACA"
+              border="1px solid #D57070"
+              color="#E74545"
+              onClick={() => alert('hi')}
+            />
+          </div>
+        )}
+      </section>
+    </main>
+  )
 }
