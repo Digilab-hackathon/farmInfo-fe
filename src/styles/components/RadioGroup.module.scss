@@ -1,0 +1,37 @@
+.radioGroupWrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23px;
+  }
+
+  .radioGroup {
+    display: flex;
+    gap: 26px;
+    border-radius: 13px;
+    background: #fff;
+
+    .optionLabel {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 10px 12px;
+
+      input[type='radio'] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      span {
+        color: #656565;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 23px;
+      }
+    }
+  }
+}
