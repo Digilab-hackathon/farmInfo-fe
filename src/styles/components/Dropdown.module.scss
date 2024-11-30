@@ -5,6 +5,16 @@
     line-height: 23px;
   }
 
+  .miniDropdown {
+    width: 50%;
+    display: flex;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-3, #d5d8dd);
+    background: var(--unnamed, #fff);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
   .dropdown {
     display: flex;
     padding: 10px 12px;
@@ -12,26 +22,35 @@
     background: var(--unnamed, #fff);
     border-radius: 8px;
     cursor: pointer;
-
-    .selectWrapper {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 23px;
-    }
-
-    .placeholder {
-      color: #b6b6b6;
-    }
-
-    .selected {
-      color: black;
-    }
+  }
+  .selectWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23px;
   }
 
+  .placeholder {
+    color: #b6b6b6;
+  }
+
+  .selected {
+    color: black;
+  }
+
+  .miniOptions {
+    max-width: 50%;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid var(--gray-3, #d5d8dd);
+    background: var(--unnamed, #fff);
+    z-index: 10;
+    max-height: 300px;
+    overflow-y: auto;
+  }
   .options {
     width: 100%;
     margin: 5px 0;
@@ -41,24 +60,24 @@
     z-index: 10;
     max-height: 300px;
     overflow-y: auto;
+  }
 
-    .option {
-      padding: 8px;
-      margin: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 23px;
-      cursor: pointer;
+  .option {
+    padding: 8px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23px;
+    cursor: pointer;
 
-      &:hover {
-        border-radius: 4px;
-        background-color: #f4f4f4;
-      }
+    &:hover {
+      border-radius: 4px;
+      background-color: #f4f4f4;
+    }
 
-      &.active {
-        border-radius: 4px;
-        background: #e7e7e7;
-      }
+    &.active {
+      border-radius: 4px;
+      background: #e7e7e7;
     }
   }
 }

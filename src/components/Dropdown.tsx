@@ -17,7 +17,8 @@ const Dropdown = <T extends FieldValues>({
   label,
   control,
   options,
-  rules
+  rules,
+  type
 }: DropdownProps<T>) => {
   const { field } = useController<T>({
     name,
@@ -39,10 +40,10 @@ const Dropdown = <T extends FieldValues>({
   return (
     <div className={style.dropDownContainer}>
       <label>
-        {label} {rules && '*'}
+        {label} {type === 'mini' ? '' : rules && '*'}
       </label>
       <div
-        className={style.dropdown}
+        className={type === 'mini' ? style.miniDropdown : style.dropdown}
         onClick={() => setIsOpen(prev => !prev)}>
         <div
           className={`${style.selectWrapper} ${field.value ? style.selected : style.placeholder}`}>
@@ -56,7 +57,7 @@ const Dropdown = <T extends FieldValues>({
         </div>
       </div>
       {isOpen && (
-        <ul className={style.options}>
+        <ul className={type === 'mini' ? style.miniOptions : style.options}>
           {notIncludeDefaultOptions.map(option => (
             <li
               key={option.value}
