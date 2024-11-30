@@ -6,9 +6,9 @@ export default function AdminLayout({
   return (
     <div
       style={{
-        margin: '0 auto',
-        padding: '20px',
-        maxWidth: '1160px'
+        margin: "0 auto",
+        padding: "20px",
+        maxWidth: "1160px"
       }}>
       {children}
     </div>

@@ -4,6 +4,6 @@ export default function AdminLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div style={{ width: '100vw', backgroundColor: '#efeeeb' }}>{children}</div>
+    <div style={{ width: "100vw", backgroundColor: "#efeeeb" }}>{children}</div>
   )
 }
