@@ -146,7 +146,7 @@ export default function AreaReport() {
         <div className={style.expectedPriceWrapper}>
           <label>예상 가격</label>
           <div>
-            <span>{expectedPriceData}원</span>
+            <span>{Math.abs(expectedPriceData)}원</span>
             <span className={style.unit}>(개당)</span>
           </div>
         </div>
