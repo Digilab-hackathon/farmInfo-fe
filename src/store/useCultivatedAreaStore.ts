@@ -8,6 +8,7 @@ import { create } from 'zustand'
 interface CultivatedAreaState {
   currentPage: number
   cultivatedAreaData: CultivatedAreaType
+  initCurrentPage: () => void
   nextPage: () => void
   updateUserInfo: (member: CultivatedAreaUserInfo) => void
   updateReportInfo: (report: CultivatedAreaReportInfo) => void
@@ -29,6 +30,10 @@ export const useCultivatedAreaStore = create<CultivatedAreaState>(set => ({
     cultivatedArea: 0,
     ownershipType: ''
   },
+  initCurrentPage: () =>
+    set(() => ({
+      currentPage: 1
+    })),
   nextPage: () =>
     set(state => ({
       currentPage: state.currentPage + 1

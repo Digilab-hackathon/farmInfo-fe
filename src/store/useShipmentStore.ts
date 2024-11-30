@@ -9,6 +9,7 @@ interface ShipmentState {
   currentPage: number
   shipmentData: ShipmentType
   nextPage: () => void
+  initCurrentPage: () => void
   updateUserInfo: (user: ShipmentUserInfo) => void
   updateReportInfo: (report: ShipmentReportInfo) => void
 }
@@ -32,6 +33,10 @@ export const useShipmentStore = create<ShipmentState>(set => ({
     unit: 0,
     grade: ''
   },
+  initCurrentPage: () =>
+    set(() => ({
+      currentPage: 1
+    })),
   nextPage: () =>
     set(state => ({
       currentPage: state.currentPage + 1
