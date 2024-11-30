@@ -15,7 +15,6 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
 
 interface ChartProps {
   data: {
-    labels: string[]
     datasets: {
       data: number[]
       backgroundColor: string[]
@@ -29,7 +28,7 @@ const DoughnutChart = ({ data }: ChartProps) => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'right' as const
+        display: false
       }
     }
   }

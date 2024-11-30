@@ -4,10 +4,13 @@ export default function AdminLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div>
-      <div style={{ margin: 'auto', padding: '20px', maxWidth: '1160px' }}>
-        {children}
-      </div>
+    <div
+      style={{
+        margin: '0 auto',
+        padding: '20px',
+        maxWidth: '1160px'
+      }}>
+      {children}
     </div>
   )
 }

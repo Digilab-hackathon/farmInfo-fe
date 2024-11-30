@@ -5,6 +5,7 @@ interface ButtonProps {
   backgroundColor?: string
   color?: string
   width?: string
+  border?: string
   onClick: () => void
 }
 
@@ -13,12 +14,13 @@ const Button = ({
   width = '100%',
   backgroundColor = '#039B72',
   color = '#fff',
+  border,
   onClick
 }: ButtonProps) => {
   return (
     <button
       className={style.button}
-      style={{ width, backgroundColor, color }}
+      style={{ width, backgroundColor, color, border }}
       onClick={onClick}>
       {contents}
     </button>
