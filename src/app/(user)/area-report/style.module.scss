@@ -41,6 +41,61 @@
     }
   }
 
+  .halfDoughnutChartWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .approveArea,
+    .ratioWrapper,
+    .approciateArea {
+      position: absolute;
+      color: var(--gray4, #808184);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16.56px;
+    }
+
+    .approveArea {
+      left: 13%;
+      bottom: -5px;
+    }
+
+    .ratioWrapper {
+      width: 84px;
+      left: 40%;
+      right: 50%;
+      bottom: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      .ratio {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+
+      .recommend {
+        min-width: 68px;
+        text-align: center;
+        padding: 8px;
+        border-radius: 15px;
+        color: #efefef;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+    }
+
+    .approciateArea {
+      right: 10%;
+      bottom: -5px;
+    }
+  }
+
   .expectedPriceWrapper {
     display: flex;
     align-items: center;

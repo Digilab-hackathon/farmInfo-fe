@@ -1,22 +1,12 @@
-'use client'
+"use client"
 
-import DoughnutChart from '@/components/DoughnutChart'
-import Dropdown from '@/components/Dropdown'
-import { cropOptions } from '@/constants/options'
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import style from './style.module.scss'
-import Link from 'next/link'
-
-const data = {
-  labels: ['Red', 'Blue', 'Yellow'],
-  datasets: [
-    {
-      data: [300, 50, 100],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-    }
-  ]
-}
+import Dropdown from "@/components/Dropdown"
+import { cropOptions } from "@/constants/options"
+import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import style from "./style.module.scss"
+import Link from "next/link"
+import HalfDoughnutChart from "@/components/HalfDoughnutChart"
 
 export default function AreaReport() {
   const [approciateAreaData, setApprociateAreaData] = useState(0)
@@ -25,11 +15,11 @@ export default function AreaReport() {
 
   const { control, watch } = useForm({
     defaultValues: {
-      crop: 'RADISH'
+      crop: "RADISH"
     }
   })
 
-  const crop = watch('crop')
+  const crop = watch("crop")
 
   useEffect(() => {
     const fetchApprociateAreaData = async () => {
@@ -38,12 +28,12 @@ export default function AreaReport() {
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-area?crop=${crop}`
         )
         if (!response.ok) {
-          throw new Error('데이터를 가져오는 데 실패했습니다.')
+          throw new Error("데이터를 가져오는 데 실패했습니다.")
         }
         const result = await response.json()
         setApprociateAreaData(result)
       } catch (error) {
-        console.error('Fetch error:', error)
+        console.error("Fetch error:", error)
       }
     }
 
@@ -53,12 +43,12 @@ export default function AreaReport() {
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/area/${crop}`
         )
         if (!response.ok) {
-          throw new Error('데이터를 가져오는 데 실패했습니다.')
+          throw new Error("데이터를 가져오는 데 실패했습니다.")
         }
         const result = await response.json()
         setApproveAreaData(result)
       } catch (error) {
-        console.error('Fetch error:', error)
+        console.error("Fetch error:", error)
       }
     }
 
@@ -68,12 +58,12 @@ export default function AreaReport() {
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/price/${crop}`
         )
         if (!response.ok) {
-          throw new Error('데이터를 가져오는 데 실패했습니다.')
+          throw new Error("데이터를 가져오는 데 실패했습니다.")
         }
         const result = await response.json()
         setExpectedPriceData(result)
       } catch (error) {
-        console.error('Fetch error:', error)
+        console.error("Fetch error:", error)
       }
     }
 
@@ -82,8 +72,36 @@ export default function AreaReport() {
     fetchExpectedPriceData()
   }, [crop])
 
+  const calValidCoverage = (coverageRatio: number) => {
+    if (coverageRatio >= 100) return 100
+    if (coverageRatio <= 0) return 0
+    return coverageRatio
+  }
+
   const remainArea = approciateAreaData - approveAreaData
-  const coverageRatio = Math.floor((approveAreaData / approciateAreaData) * 100)
+  const coverageRatio = calValidCoverage(
+    Math.floor((approveAreaData / approciateAreaData) * 100)
+  )
+
+  const calCoverageColor = (coverageRatio: number) => {
+    if (coverageRatio > 0 && coverageRatio < 50) return "#007052"
+    if (coverageRatio < 100) return "#F18620"
+    if (coverageRatio >= 100) return "#EB3E26"
+    return "#CECECE"
+  }
+
+  const coverageRadioData = [
+    {
+      name: "헌재 신고 면적",
+      value: coverageRatio,
+      color: calCoverageColor(coverageRatio)
+    },
+    {
+      name: "남은 면적",
+      value: 100 - coverageRatio,
+      color: "#CECECE"
+    }
+  ]
 
   return (
     <main className={style.areaReportContainer}>
@@ -96,8 +114,25 @@ export default function AreaReport() {
           rules={{ required: true }}
           type="mini"
         />
-        <DoughnutChart data={data} />
-        {coverageRatio < 100 ? (
+        <div className={style.halfDoughnutChartWrapper}>
+          <HalfDoughnutChart data={coverageRadioData} />
+          <div className={style.approveArea}>현재 신고 면적</div>
+          <div className={style.ratioWrapper}>
+            <div
+              className={style.ratio}
+              style={{ color: calCoverageColor(coverageRatio) }}>
+              {coverageRatio}%
+            </div>
+            <div
+              className={style.recommend}
+              style={{ backgroundColor: calCoverageColor(coverageRatio) }}>
+              추천
+            </div>
+          </div>
+          <div className={style.approciateArea}>적정 재배 면적 지수</div>
+        </div>
+
+        {coverageRatio > 0 && coverageRatio < 100 ? (
           <div className={style.cultivationRateInfoWrapper}>
             남은 면적 : {remainArea}평
           </div>
