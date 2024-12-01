@@ -30,7 +30,11 @@ const CustomLabel: React.FC<CustomLabelProps> = ({ x, y, name, value }) => {
   return (
     <g
       transform={`translate(${x},${y})`}
-      style={{ fontSize: "14px", color: "#565656", fontWeight: "700" }}>
+      style={{
+        fontSize: "14px",
+        color: "#565656",
+        fontWeight: "700"
+      }}>
       {splitName.map((line, index) => (
         <text
           key={index}
@@ -43,7 +47,7 @@ const CustomLabel: React.FC<CustomLabelProps> = ({ x, y, name, value }) => {
       ))}
       <text
         x={275}
-        y={5} // value는 name의 텍스트가 끝난 후 위치
+        // y={5} // value는 name의 텍스트가 끝난 후 위치
         textAnchor="start"
         fill="#565656">
         {Math.floor(value)}kg
@@ -61,7 +65,7 @@ const HorizontalBarChart = ({ data }: dataProps) => {
         layout="vertical"
         data={data}
         barGap={3}
-        margin={{ top: 30, right: 0, bottom: 30, left: 20 }}>
+        margin={{ top: 30, right: 65, bottom: 30, left: 20 }}>
         <XAxis
           type="number"
           hide={true}

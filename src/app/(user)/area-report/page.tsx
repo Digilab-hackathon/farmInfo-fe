@@ -67,9 +67,14 @@ export default function AreaReport() {
       }
     }
 
-    fetchApprociateAreaData()
-    fetchApproveAreaData()
-    fetchExpectedPriceData()
+    const fetchDataWithDelay = async () => {
+      fetchApprociateAreaData()
+      fetchApproveAreaData()
+      await new Promise(resolve => setTimeout(resolve, 2000)) // 2 seconds delay
+      fetchExpectedPriceData() // This will be executed after 2 seconds delay
+    }
+
+    fetchDataWithDelay()
   }, [crop])
 
   const calValidCoverage = (coverageRatio: number) => {
@@ -129,12 +134,14 @@ export default function AreaReport() {
               추천
             </div>
           </div>
-          <div className={style.approciateArea}>적정 재배 면적 지수</div>
+          <div className={style.approciateArea}>
+            적정 재배 면적 지수 {approciateAreaData}
+          </div>
         </div>
 
         {coverageRatio > 0 && coverageRatio < 100 ? (
           <div className={style.cultivationRateInfoWrapper}>
-            남은 면적 : {remainArea}평
+            남은 면적 : {Math.floor(remainArea)}평
           </div>
         ) : (
           <div className={style.cultivationRateInfoWrapper}>
