@@ -84,9 +84,12 @@ export default function AreaReport() {
   }
 
   const remainArea = approciateAreaData - approveAreaData
-  const coverageRatio = calValidCoverage(
-    Math.floor((approveAreaData / approciateAreaData) * 100)
-  )
+  const coverageRatio =
+    approciateAreaData > 0
+      ? calValidCoverage(
+          Math.floor((approveAreaData / approciateAreaData) * 100)
+        )
+      : 0
 
   const calCoverageColor = (coverageRatio: number) => {
     if (coverageRatio > 0 && coverageRatio < 50) return "#007052"
