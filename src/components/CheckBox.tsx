@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import { useController, Control, FieldValues, Path } from 'react-hook-form'
-import style from '@/styles/components/Checkbox.module.scss'
+import Image from "next/image"
+import { useController, Control, FieldValues, Path } from "react-hook-form"
+import style from "@/styles/components/Checkbox.module.scss"
 
 interface CheckboxProps<T extends FieldValues> {
   name: Path<T>
@@ -37,8 +37,8 @@ const Checkbox = <T extends FieldValues>({
         <Image
           src={`${
             field.value
-              ? '/icons/radio-checked.png'
-              : '/icons/radio-default.png'
+              ? "/icons/radio-checked.png"
+              : "/icons/radio-default.png"
           }`}
           alt="기본 체크박스 버튼"
           width={20}

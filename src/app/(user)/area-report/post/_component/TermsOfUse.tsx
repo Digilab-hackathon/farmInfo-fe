@@ -1,10 +1,11 @@
-import Button from '@/components/Button'
-import Checkbox from '@/components/Checkbox'
-import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { useForm, useWatch } from 'react-hook-form'
-import style from '../../style.module.scss'
+import Button from "@/components/Button"
+
+import { useCultivatedAreaStore } from "@/store/useCultivatedAreaStore"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+import { useForm, useWatch } from "react-hook-form"
+import style from "../../style.module.scss"
+import Checkbox from "@/components/Checkbox"
 
 const TermsOfUse = () => {
   const router = useRouter()
@@ -20,15 +21,15 @@ const TermsOfUse = () => {
 
   // "전체 동의하기" 체크박스가 체크됐을 때
   const handleAllChange = (checked: boolean) => {
-    setValue('all', checked)
-    setValue('personal1', checked)
-    setValue('personal2', checked)
+    setValue("all", checked)
+    setValue("personal1", checked)
+    setValue("personal2", checked)
   }
 
   // 개인 체크박스들이 모두 체크되었는지 확인하여 "전체 동의하기" 체크박스 동기화
   const syncAllCheckbox = () => {
     const allChecked = (personal1 && personal2) ?? false
-    setValue('all', allChecked)
+    setValue("all", allChecked)
   }
 
   useEffect(() => {
@@ -43,17 +44,17 @@ const TermsOfUse = () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports`,
       {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cultivatedData)
       }
     )
 
     if (!response.ok) {
-      throw new Error('Error posting data')
+      throw new Error("Error posting data")
     }
 
-    router.push('/')
+    router.push("/")
   }
 
   return (
@@ -69,13 +70,13 @@ const TermsOfUse = () => {
           name="personal1"
           label="[필수] 재배면적 출과 관련 성명, 생년월일, 주소, 연락처의 개인정보의 수집 이용에 동의합니다."
           control={control}
-          rules={{ required: '필수 약관에 동의해주세요.' }}
+          rules={{ required: "필수 약관에 동의해주세요." }}
         />
         <Checkbox
           name="personal2"
           label="[필수] 재배면적 산출과 관련 성명, 생년월일, 주소, 연락처의 개인 정보의 제공에 동의합니다."
           control={control}
-          rules={{ required: '필수 약관에 동의해주세요.' }}
+          rules={{ required: "필수 약관에 동의해주세요." }}
         />
       </section>
 
