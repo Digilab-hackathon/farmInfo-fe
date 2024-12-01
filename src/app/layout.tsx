@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import '@/styles/globals.scss'
+import type { Metadata } from "next"
+import "@/styles/globals.scss"
 
 export const metadata: Metadata = {
-  title: '팜인포: Jeju',
-  description: '월동 채소 재배면적신고 시스템'
+  title: "팜인포: Jeju",
+  description: "월동 채소 재배면적신고 시스템"
 }
 
 export default function RootLayout({
@@ -13,6 +13,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </head>
       <body>{children}</body>
     </html>
   )
