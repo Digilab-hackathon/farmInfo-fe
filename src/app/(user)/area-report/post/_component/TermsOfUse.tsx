@@ -1,5 +1,4 @@
 import Button from "@/components/Button"
-
 import { useCultivatedAreaStore } from "@/store/useCultivatedAreaStore"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
