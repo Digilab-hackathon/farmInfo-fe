@@ -1,4 +1,4 @@
-import Footer from '../_components/Footer/Footer'
+import Footer from "./_compoents/Footer/Footer"
 
 export default function UserLayout({
   children
@@ -8,15 +8,15 @@ export default function UserLayout({
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
         // height: '100%',
-        paddingBottom: '83px',
-        maxWidth: '500px',
-        minHeight: '100vh',
-        margin: '0 auto',
-        backgroundColor: '#EFEEEB'
+        paddingBottom: "83px",
+        maxWidth: "500px",
+        minHeight: "100vh",
+        margin: "0 auto",
+        backgroundColor: "#EFEEEB"
       }}>
       <div style={{ flex: 1 }}>{children}</div>
       <Footer />

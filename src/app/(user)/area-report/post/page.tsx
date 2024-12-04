@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import UserInfoForm from './_component/UserInfoForm'
-import CultivationInfo from './_component/CultivationInfo'
-import TermsOfUse from './_component/TermsOfUse'
-import { useCultivatedAreaStore } from '@/store/useCultivatedAreaStore'
-import FormTab from '../../_compoents/FormTab'
-import { useEffect } from 'react'
-import style from '../style.module.scss'
+import UserInfoForm from "./_component/UserInfoForm"
+import CultivationInfo from "./_component/CultivationInfo"
+import TermsOfUse from "./_component/TermsOfUse"
+import { useCultivatedAreaStore } from "@/store/useCultivatedAreaStore"
+import { useEffect } from "react"
+import style from "../style.module.scss"
+import FormTab from "../../_compoents/FormTab/FormTab"
 
 export default function AreaReport() {
   const currentPage = useCultivatedAreaStore(state => state.currentPage)

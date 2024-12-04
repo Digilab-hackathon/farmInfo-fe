@@ -1,4 +1,3 @@
-import ContentsForm from "@/app/(admin)/_components/ContentsForm"
 import style from "../../style.module.scss"
 import { shipmentReportResponse } from "@/types/data"
 import {
@@ -10,6 +9,7 @@ import {
   tradingMethodOptions,
   wholesaleCompanyOptions
 } from "@/constants/options"
+import ContentsForm from "@/app/(admin)/_components/ContentsForm/ContentsForm"
 
 interface responseProps {
   data: shipmentReportResponse | undefined

@@ -1,12 +1,12 @@
 "use client"
 
-import Dropdown from "@/components/Dropdown"
 import { cropOptions } from "@/constants/options"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import style from "./style.module.scss"
 import Link from "next/link"
-import HalfDoughnutChart from "@/components/HalfDoughnutChart"
+import Dropdown from "@/components/Dropdown/Dropdown"
+import HalfDoughnutChart from "@/components/Chart/HalfDoughnutChart"
 
 export default function AreaReport() {
   const [approciateAreaData, setApprociateAreaData] = useState(0)

@@ -1,7 +1,7 @@
 "use client"
 
 import { useController, FieldValues, Path, Control } from "react-hook-form"
-import style from "@/styles/components/InputForm.module.scss"
+import style from "./style.module.scss"
 
 interface InputProps<T extends FieldValues> {
   name: Path<T>
@@ -13,7 +13,7 @@ interface InputProps<T extends FieldValues> {
   rules?: object
 }
 
-const InputForm = <T extends FieldValues>({
+const Input = <T extends FieldValues>({
   name,
   label,
   detailLabel,
@@ -46,4 +46,4 @@ const InputForm = <T extends FieldValues>({
   )
 }
 
-export default InputForm
+export default Input

@@ -1,11 +1,11 @@
 "use client"
 
 import useTabsStore from "@/store/useTabsStore"
-import Tab from "../../_components/Tab"
-import ManagementList from "../_components/ManagementList"
 import { useEffect, useState } from "react"
 import { shipmentReportResponse } from "@/types/data"
 import style from "./style.module.scss"
+import Tab from "../../_components/Tab/Tab"
+import ManagementList from "../_components/ManagementList/ManagementList"
 
 export default function ShipmentReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)

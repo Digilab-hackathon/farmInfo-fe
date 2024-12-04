@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import { shipmentReportResponse } from '@/types/data'
-import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import DetailHeader from '../../_components/DetailHeader'
-import { formatDate } from '@/utils/formatDate'
-import style from '../style.module.scss'
-import Button from '@/components/Button'
-import ShipmentAreaManagementDetail from './_components/ShipmentManagementDetail'
+import { shipmentReportResponse } from "@/types/data"
+import { useParams, useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+import { formatDate } from "@/utils/formatDate"
+import style from "../style.module.scss"
+import ShipmentAreaManagementDetail from "./_components/ShipmentManagementDetail"
+import DetailHeader from "../../_components/DetailHeader/DetailHeader"
+import Button from "@/components/Button/Button"
 
 export default function ShipmentReportDetail() {
   const { id } = useParams()
@@ -23,7 +23,7 @@ export default function ShipmentReportDetail() {
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/${id}`
         )
         if (!response.ok) {
-          throw new Error('데이터를 가져오는 데 실패했습니다.')
+          throw new Error("데이터를 가져오는 데 실패했습니다.")
         }
         const result = await response.json()
         setData(result) // 데이터 설정
@@ -39,44 +39,44 @@ export default function ShipmentReportDetail() {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/${id}/approve`,
       {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' }
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" }
       }
     )
     if (!response.ok) {
-      throw new Error('Error patching data')
+      throw new Error("Error patching data")
     }
-    route.push('/admin/shipment-report-management')
+    route.push("/admin/shipment-report-management")
   }
 
   const handleReject = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/shipment-reports/${id}/reject`,
       {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' }
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" }
       }
     )
     if (!response.ok) {
-      throw new Error('Error patching data')
+      throw new Error("Error patching data")
     }
-    route.push('/admin/shipment-report-management')
+    route.push("/admin/shipment-report-management")
   }
 
   return (
     <main className={style.shipmentReportDetailWrapper}>
       <section>
         <DetailHeader
-          id={data?.shipmentReport.id.toString() || ''}
-          createdAt={formatDate(data?.shipmentReport.createdAt || '')}
+          id={data?.shipmentReport.id.toString() || ""}
+          createdAt={formatDate(data?.shipmentReport.createdAt || "")}
         />
       </section>
-      <section style={{ padding: '0 45px' }}>
+      <section style={{ padding: "0 45px" }}>
         <ShipmentAreaManagementDetail data={data} />
       </section>
       {/* 접수 상태일 때만 버튼 띄우기 */}
-      <section style={{ marginBottom: '30px' }}>
-        {data?.shipmentReport.status === 'PENDING' && (
+      <section style={{ marginBottom: "30px" }}>
+        {data?.shipmentReport.status === "PENDING" && (
           <div className={style.buttonWrapper}>
             <Button
               contents="승인"

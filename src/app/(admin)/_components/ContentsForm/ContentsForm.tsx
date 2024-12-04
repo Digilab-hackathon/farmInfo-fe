@@ -1,4 +1,4 @@
-import style from '@/styles/components/ContentsForm.module.scss'
+import style from "./style.module.scss"
 
 interface ContentsFormProps {
   label: string
@@ -10,7 +10,7 @@ const ContentsForm = ({ label, contents }: ContentsFormProps) => {
       <label>{label}</label>
       <div className={style.contentsForm}>
         {contents}
-        {label === '면적' ? '평' : ''}
+        {label === "면적" ? "평" : ""}
       </div>
     </div>
   )

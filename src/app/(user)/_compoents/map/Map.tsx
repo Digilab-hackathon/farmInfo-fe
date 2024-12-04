@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 
 export default function Map() {
   const [map, setMap] = useState<naver.maps.Map | null>(null)
@@ -17,7 +17,7 @@ export default function Map() {
         zoom: 15
       }
 
-      const newMap = new naver.maps.Map('map', mapOptions)
+      const newMap = new naver.maps.Map("map", mapOptions)
       setMap(newMap)
 
       const radius = 50 // 반경 설정
@@ -26,17 +26,17 @@ export default function Map() {
         map: newMap,
         center: jejuCenter, // 중심 좌표
         radius: radius, // 반지름
-        strokeColor: '#FF0000', // 테두리 색
+        strokeColor: "#FF0000", // 테두리 색
         strokeOpacity: 1, // 테두리 불투명도
         strokeWeight: 2, // 테두리 두께
-        fillColor: '#FF0000', // 원 내부 색
+        fillColor: "#FF0000", // 원 내부 색
         fillOpacity: 0.3 // 원 내부 불투명도
       })
 
       const marker = new naver.maps.Marker({
         position: jejuCenter,
         map: newMap,
-        title: '제주도 중심'
+        title: "제주도 중심"
       })
 
       // marker 클릭 시 나타나는 정보
@@ -50,7 +50,7 @@ export default function Map() {
       })
 
       // marker 클릭 이벤트
-      naver.maps.Event.addListener(marker, 'click', () => {
+      naver.maps.Event.addListener(marker, "click", () => {
         if (infoWindow.getMap()) {
           infoWindow.close()
         } else {
@@ -69,15 +69,15 @@ export default function Map() {
             setCurrentLocation(location)
           },
           error => {
-            console.error('Geolocation Error:', error)
+            console.error("Geolocation Error:", error)
           }
         )
       } else {
-        console.error('Geolocation is not supported by this browser.')
+        console.error("Geolocation is not supported by this browser.")
       }
     }
 
-    const script = document.createElement('script')
+    const script = document.createElement("script")
     script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`
     script.onload = () => initializeMap()
     document.body.appendChild(script)
@@ -98,18 +98,18 @@ export default function Map() {
     <main>
       <div
         id="map"
-        style={{ width: '100%', height: '300px' }}>
+        style={{ width: "100%", height: "300px" }}>
         <button
           onClick={moveToCurrentLocation}
           style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            padding: '10px',
-            borderRadius: '10px',
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            padding: "10px",
+            borderRadius: "10px",
             zIndex: 1,
-            border: 'none',
-            cursor: 'pointer'
+            border: "none",
+            cursor: "pointer"
           }}>
           현재 위치로 이동
         </button>

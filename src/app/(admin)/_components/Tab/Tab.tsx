@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { STATUS } from '@/constants/constants'
-import useTabsStore from '@/store/useTabsStore'
-import style from '@/styles/components/Tab.module.scss'
+import { STATUS } from "@/constants/constants"
+import useTabsStore from "@/store/useTabsStore"
+import style from "./style.module.scss"
 
 const Tab = () => {
   const activeTab = useTabsStore(state => state.activeTab)
@@ -11,9 +11,9 @@ const Tab = () => {
 
   return (
     <div className={style.tabWrapper}>
-      {['PENDING', 'APPROVED', 'REJECTED'].map(tab => (
+      {["PENDING", "APPROVED", "REJECTED"].map(tab => (
         <button
-          className={`${style.btnDefault} ${tab === activeTab ? style.btnActive : ''}`}
+          className={`${style.btnDefault} ${tab === activeTab ? style.btnActive : ""}`}
           key={tab}
           onClick={() => handleTabClick(tab)}>
           {STATUS[tab]}

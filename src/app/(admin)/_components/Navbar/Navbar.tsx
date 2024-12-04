@@ -1,13 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import styles from "@/styles/components/Navbar.module.scss"
+import style from "./style.module.scss"
 import Image from "next/image"
 
 export default function Navbar() {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>
+    <nav className={style.navbar}>
+      <div className={style.logo}>
         <Link href="/admin">
           <Image
             src="/images/logo.png"
@@ -18,7 +18,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <ul className={styles.navLinks}>
+      <ul className={style.navLinks}>
         <li>
           <Link href="/admin/cultivated-area-report-management">
             재배면적 신고 관리

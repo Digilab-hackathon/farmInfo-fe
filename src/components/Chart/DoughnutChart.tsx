@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import {
   Chart as ChartJS,
@@ -8,8 +8,8 @@ import {
   ArcElement,
   CategoryScale,
   LinearScale
-} from 'chart.js'
-import { Doughnut } from 'react-chartjs-2'
+} from "chart.js"
+import { Doughnut } from "react-chartjs-2"
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
 

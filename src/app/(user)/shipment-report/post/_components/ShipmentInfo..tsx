@@ -1,10 +1,7 @@
-import RadioGroup from '@/components/RadioGroup'
-import InputForm from '@/components/InputForm'
-import style from '../../style.module.scss'
-import { useForm } from 'react-hook-form'
-import Dropdown from '@/components/Dropdown'
-import { useShipmentStore } from '@/store/useShipmentStore'
-import { ShipmentReportInfo } from '@/types/ShipmentInfoValues'
+import style from "../../style.module.scss"
+import { useForm } from "react-hook-form"
+import { useShipmentStore } from "@/store/useShipmentStore"
+import { ShipmentReportInfo } from "@/types/ShipmentInfoValues"
 import {
   cropOptions,
   gradeOptions,
@@ -13,24 +10,27 @@ import {
   tradeTypeOptions,
   tradingMethodOptions,
   wholesaleCompanyOptions
-} from '@/constants/options'
-import Button from '@/components/Button'
+} from "@/constants/options"
+import Input from "@/components/Input/Input"
+import Dropdown from "@/components/Dropdown/Dropdown"
+import RadioGroup from "@/components/RadioGroup/RadioGroup"
+import Button from "@/components/Button/Button"
 
 const ShipmentInfo = () => {
   const updateReportInfo = useShipmentStore(state => state.updateReportInfo)
   const nextPage = useShipmentStore(state => state.nextPage)
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      expectedShipDate: '',
-      wholesaleCompany: '',
-      tradeType: '',
-      tradingMethod: '',
-      producerName: '',
-      productionLocation: '',
-      crop: '',
-      packaging: '',
+      expectedShipDate: "",
+      wholesaleCompany: "",
+      tradeType: "",
+      tradingMethod: "",
+      producerName: "",
+      productionLocation: "",
+      crop: "",
+      packaging: "",
       unit: 0,
-      grade: ''
+      grade: ""
     }
   })
 
@@ -47,7 +47,7 @@ const ShipmentInfo = () => {
             <div>1</div>
             <label>출하 정보</label>
           </div>
-          <InputForm
+          <Input
             name="expectedShipDate"
             label="출하예정일"
             control={control}
@@ -82,7 +82,7 @@ const ShipmentInfo = () => {
             <div>2</div>
             <label>품목 정보</label>
           </div>
-          <InputForm
+          <Input
             name="producerName"
             label="생산자 성명"
             detailLabel="(법인명)"
@@ -111,7 +111,7 @@ const ShipmentInfo = () => {
             options={packagingOptions}
             rules={{ required: true }}
           />
-          <InputForm
+          <Input
             name="unit"
             label="단위"
             detailLabel="(kg)"

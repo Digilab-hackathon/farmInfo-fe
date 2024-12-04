@@ -1,4 +1,4 @@
-import style from '@/styles/components/CompleteContents.module.scss'
+import style from "./style.module.scss"
 
 interface CompleteContentsProps {
   category: string

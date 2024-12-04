@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import style from '@/styles/components/DetailHeader.module.scss'
-import { useRouter } from 'next/navigation'
+import Image from "next/image"
+import style from "./style.module.scss"
+import { useRouter } from "next/navigation"
 
 interface DetailHeaderProps {
   id: string
@@ -14,7 +14,7 @@ const DetailHeader = ({ id, createdAt }: DetailHeaderProps) => {
     <div className={style.detailHeaderWrapper}>
       <button onClick={handleBack}>
         <Image
-          src={'/icons/back.png'}
+          src={"/icons/back.png"}
           alt="뒤로가기"
           width={12}
           height={24}

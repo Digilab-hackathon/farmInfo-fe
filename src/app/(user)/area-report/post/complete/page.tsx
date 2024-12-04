@@ -1,15 +1,15 @@
-'use client'
+"use client"
 
-import FormTab from '@/app/(user)/_compoents/FormTab'
-import style from '../../style.module.scss'
-import CompleteContents from '@/app/(user)/_compoents/CompleteContents'
-import Button from '@/components/Button'
-import { useRouter } from 'next/navigation'
+import FormTab from "@/app/(user)/_compoents/FormTab/FormTab"
+import style from "../../style.module.scss"
+import { useRouter } from "next/navigation"
+import CompleteContents from "@/app/(user)/_compoents/CompleteCotents/CompleteContents"
+import Button from "@/components/Button/Button"
 
 export default function Complete() {
   const route = useRouter()
   const handleClick = () => {
-    route.push('/')
+    route.push("/")
   }
   return (
     <div className={style.completeContainer}>

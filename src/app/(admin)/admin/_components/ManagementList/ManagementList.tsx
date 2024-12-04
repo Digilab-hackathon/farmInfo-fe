@@ -1,6 +1,6 @@
 import { cultivationReportResponse, shipmentReportResponse } from "@/types/data"
 import { useRouter } from "next/navigation"
-import style from "@/styles/components/ManagementList.module.scss"
+import style from "./style.module.scss"
 import { formatDate } from "@/utils/formatDate"
 
 type ManagementProps = {

@@ -1,9 +1,9 @@
-import Button from "@/components/Button"
-import InputForm from "@/components/InputForm"
 import { useShipmentStore } from "@/store/useShipmentStore"
 import { ShipmentUserInfo } from "@/types/ShipmentInfoValues"
 import { useForm } from "react-hook-form"
 import style from "../../style.module.scss"
+import Input from "@/components/Input/Input"
+import Button from "@/components/Button/Button"
 
 const UserInfoForm = () => {
   const updateUserInfo = useShipmentStore(state => state.updateUserInfo)
@@ -26,7 +26,7 @@ const UserInfoForm = () => {
   return (
     <main className={style.infoFormContainer}>
       <section className={style.formSection}>
-        <InputForm
+        <Input
           name="name"
           label="성명"
           detailLabel="(법인명)"
@@ -34,7 +34,7 @@ const UserInfoForm = () => {
           placeholder="홍길동"
           rules={{ required: true }}
         />
-        <InputForm
+        <Input
           name="birthDate"
           label="생년월일"
           detailLabel="(법인 번호)"
@@ -47,14 +47,14 @@ const UserInfoForm = () => {
             }
           }}
         />
-        <InputForm
+        <Input
           name="address"
           label="주소"
           control={control}
           placeholder="덕현로11 123번지"
           rules={{ required: true }}
         />
-        <InputForm
+        <Input
           name="phoneNumber"
           label="연락처"
           detailLabel="(핸드폰)"
@@ -67,7 +67,7 @@ const UserInfoForm = () => {
             }
           }}
         />
-        <InputForm
+        <Input
           name="homePhoneNumber"
           label="연락처"
           detailLabel="(자택)"

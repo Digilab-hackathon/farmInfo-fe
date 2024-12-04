@@ -2,12 +2,12 @@
 
 import useAdminTabsStore from "@/store/useAdminTabsStore"
 import style from "./style.module.scss"
-import Dropdown from "@/components/Dropdown"
 import { Controller, useForm } from "react-hook-form"
 import { cropOptions } from "@/constants/options"
-import Button from "@/components/Button"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import Dropdown from "@/components/Dropdown/Dropdown"
+import Button from "@/components/Button/Button"
 
 export default function DataManagement() {
   const { control, watch, handleSubmit } = useForm({

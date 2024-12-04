@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import { useController, Control, Path, FieldValues } from 'react-hook-form'
-import style from '@/styles/components/RadioGroup.module.scss'
-import Image from 'next/image'
+import { useController, Control, Path, FieldValues } from "react-hook-form"
+import style from "./style.module.scss"
+import Image from "next/image"
 
 interface RadioGroupProps<T extends FieldValues> {
   name: Path<T>
@@ -29,7 +29,7 @@ const RadioGroup = <T extends FieldValues>({
     <div className={style.radioGroupWrapper}>
       <label>
         <span>{label} </span>
-        {rules && '*'}
+        {rules && "*"}
       </label>
       <div className={style.radioGroup}>
         {options.map(option => (
@@ -39,8 +39,8 @@ const RadioGroup = <T extends FieldValues>({
             <Image
               src={`${
                 field.value === option.value
-                  ? '/icons/radio-checked.png'
-                  : '/icons/radio-default.png'
+                  ? "/icons/radio-checked.png"
+                  : "/icons/radio-default.png"
               }`}
               alt="기본 라디오 버튼"
               width={20}

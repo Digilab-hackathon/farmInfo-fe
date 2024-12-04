@@ -1,14 +1,14 @@
 "use client"
 
-import DoughnutChart from "@/components/DoughnutChart"
-import Header from "../_components/Header/Header"
+import Header from "./_compoents/Header/Header"
 import style from "./style.module.scss"
 import Image from "next/image"
-import HorizontalBarChart from "@/components/HorizontalBarChart"
 import { useEffect, useState } from "react"
 import { cropOptions } from "@/constants/options"
 import { mapEnglishToKorean } from "@/utils/mapEnglishToKorean"
 import { addBarChartOptions } from "@/utils/addBarChartOptions"
+import DoughnutChart from "@/components/Chart/DoughnutChart"
+import HorizontalBarChart from "@/components/Chart/HorizontalBarChart"
 
 type ratioType = {
   cropRatios: {

@@ -3,8 +3,8 @@ import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { useForm, useWatch } from "react-hook-form"
 import style from "../../style.module.scss"
-import Button from "@/components/Button"
-import Checkbox from "@/components/Checkbox"
+import Checkbox from "@/components/Checkbox/Checkbox"
+import Button from "@/components/Button/Button"
 
 const TermsOfUse = () => {
   const router = useRouter()

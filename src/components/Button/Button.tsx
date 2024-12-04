@@ -1,4 +1,4 @@
-import style from '@/styles/components/Button.module.scss'
+import style from "./style.module.scss"
 
 interface ButtonProps {
   contents: string
@@ -11,9 +11,9 @@ interface ButtonProps {
 
 const Button = ({
   contents,
-  width = '100%',
-  backgroundColor = '#039B72',
-  color = '#fff',
+  width = "100%",
+  backgroundColor = "#039B72",
+  color = "#fff",
   border,
   onClick
 }: ButtonProps) => {

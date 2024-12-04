@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import useTabsStore from '@/store/useTabsStore'
-import Tab from '../../_components/Tab'
-import ManagementList from '../_components/ManagementList'
-import { useEffect, useState } from 'react'
-import { cultivationReportResponse } from '@/types/data'
-import style from './style.module.scss'
+import useTabsStore from "@/store/useTabsStore"
+import { useEffect, useState } from "react"
+import { cultivationReportResponse } from "@/types/data"
+import style from "./style.module.scss"
+import Tab from "../../_components/Tab/Tab"
+import ManagementList from "../_components/ManagementList/ManagementList"
 
 export default function CultivatedAreaReportManagement() {
   const activeTab = useTabsStore(state => state.activeTab)
@@ -17,7 +17,7 @@ export default function CultivatedAreaReportManagement() {
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/cultivation-reports/status/${activeTab}`
       )
       if (!response.ok) {
-        throw new Error('데이터를 가져오는 데 실패했습니다.')
+        throw new Error("데이터를 가져오는 데 실패했습니다.")
       }
       const result = await response.json()
       setDatas(result)

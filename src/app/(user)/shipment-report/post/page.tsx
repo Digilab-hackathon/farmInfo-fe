@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import { useShipmentStore } from '@/store/useShipmentStore'
-import UserInfoForm from './_components/UserInfoForm'
-import ShipmentInfo from './_components/ShipmentInfo.'
-import TermsOfUse from './_components/TermsOfUse'
-import { useEffect } from 'react'
-import FormTab from '../../_compoents/FormTab'
-import style from '../style.module.scss'
+import { useShipmentStore } from "@/store/useShipmentStore"
+import UserInfoForm from "./_components/UserInfoForm"
+import ShipmentInfo from "./_components/ShipmentInfo."
+import TermsOfUse from "./_components/TermsOfUse"
+import { useEffect } from "react"
+import style from "../style.module.scss"
+import FormTab from "../../_compoents/FormTab/FormTab"
 
 export default function AreaReport() {
   const currentPage = useShipmentStore(state => state.currentPage)

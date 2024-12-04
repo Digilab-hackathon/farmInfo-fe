@@ -1,11 +1,11 @@
-import ContentsForm from '@/app/(admin)/_components/ContentsForm'
-import style from '../../style.module.scss'
-import { cultivationReportResponse } from '@/types/data'
+import style from "../../style.module.scss"
+import { cultivationReportResponse } from "@/types/data"
 import {
   cropOptions,
   landCategoryOptions,
   selfCultivatedOptions
-} from '@/constants/options'
+} from "@/constants/options"
+import ContentsForm from "@/app/(admin)/_components/ContentsForm/ContentsForm"
 interface responseProps {
   data: cultivationReportResponse | undefined
 }
@@ -38,7 +38,7 @@ const CultivatedAreaManagementDetail = ({ data }: responseProps) => {
               />
               <ContentsForm
                 label="연락처 (자택)"
-                contents={data.memberInfo.homePhoneNumber ?? ''}
+                contents={data.memberInfo.homePhoneNumber ?? ""}
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ const CultivatedAreaManagementDetail = ({ data }: responseProps) => {
                 contents={
                   cropOptions.find(
                     option => option.value === data.cultivationReport.crop
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
             </div>
@@ -80,7 +80,7 @@ const CultivatedAreaManagementDetail = ({ data }: responseProps) => {
                   landCategoryOptions.find(
                     option =>
                       option.value === data.cultivationReport.landCategory
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
               <ContentsForm
@@ -97,7 +97,7 @@ const CultivatedAreaManagementDetail = ({ data }: responseProps) => {
                   selfCultivatedOptions.find(
                     option =>
                       option.value === data.cultivationReport.ownershipType
-                  )?.label || ''
+                  )?.label || ""
                 }
               />
             </div>

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useController, Control, FieldValues, Path } from "react-hook-form"
-import style from "@/styles/components/Checkbox.module.scss"
+import style from "./style.module.scss"
 
 interface CheckboxProps<T extends FieldValues> {
   name: Path<T>

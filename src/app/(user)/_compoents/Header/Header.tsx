@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import style from './style.module.scss'
+import Image from "next/image"
+import style from "./style.module.scss"
 
 interface HeaderProps {
   title: string
@@ -8,11 +8,11 @@ interface HeaderProps {
 
 const Header = ({ title, type }: HeaderProps) => {
   const typeClass =
-    type === 'main' ? style.mainHeaderContainer : style.headerContainer
+    type === "main" ? style.mainHeaderContainer : style.headerContainer
 
   return (
     <div className={`${style.commonHeaderContainer} ${typeClass}`}>
-      {type === 'main' ? (
+      {type === "main" ? (
         <Image
           src="/images/logo.png"
           alt="로고"
